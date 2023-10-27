@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
+import ProductCard from './ProductCard';
 
 // the key should be the id
 // on press should navigate
@@ -12,91 +12,109 @@ function Products() {
 
     const list = [
         {
+          id: 1,
           title: "Orange",
           img: "https://nextui.org/images/fruit-1.jpeg",
           price: "$5.50",
         },
         {
+          id: 2,
           title: "Tangerine",
           img: "https://nextui.org/images/fruit-2.jpeg",
           price: "$3.00",
         },
         {
+          id: 3,
           title: "Raspberry",
           img: "https://nextui.org/images/fruit-3.jpeg",
           price: "$10.00",
         },
         {
+          id: 4,
           title: "Lemon",
           img: "https://nextui.org/images/fruit-4.jpeg",
           price: "$5.30",
         },
         {
+          id: 5,
           title: "Avocado",
           img: "https://nextui.org/images/fruit-5.jpeg",
           price: "$15.70",
         },
         {
+          id: 6,
           title: "Lemon 2",
           img: "https://nextui.org/images/fruit-6.jpeg",
           price: "$8.00",
         },
         {
+          id: 7,
           title: "Banana",
           img: "https://nextui.org/images/fruit-7.jpeg",
           price: "$7.50",
         },
         {
+          id: 8,
           title: "Watermelon",
           img: "https://nextui.org/images/fruit-8.jpeg",
           price: "$12.20",
         },
         {
+          id: 9,
           title: "Orange",
           img: "https://nextui.org/images/fruit-1.jpeg",
           price: "$5.50",
         },
         {
+          id: 10,
           title: "Tangerine",
           img: "https://nextui.org/images/fruit-2.jpeg",
           price: "$3.00",
         },
         {
+          id: 11,
           title: "Raspberry",
           img: "https://nextui.org/images/fruit-3.jpeg",
           price: "$10.00",
         },
         {
+          id: 12,
           title: "Lemon",
           img: "https://nextui.org/images/fruit-4.jpeg",
           price: "$5.30",
         },
         {
+          id: 13,
           title: "Avocado",
           img: "https://nextui.org/images/fruit-5.jpeg",
           price: "$15.70",
         },
         {
+          id: 14,
           title: "Lemon 2",
           img: "https://nextui.org/images/fruit-6.jpeg",
           price: "$8.00",
         },
         {
+          id: 15,
           title: "Banana",
           img: "https://nextui.org/images/fruit-7.jpeg",
           price: "$7.50",
         },
         {
+          id: 16,
           title: "Watermelon",
           img: "https://nextui.org/images/fruit-8.jpeg",
           price: "$12.20",
         },
         {
+          id: 17,
           title: "Orange",
           img: "https://nextui.org/images/fruit-1.jpeg",
           price: "$5.50",
         },
         {
+          id: 18,
           title: "Tangerine",
           img: "https://nextui.org/images/fruit-2.jpeg",
           price: "$3.00",
@@ -105,22 +123,8 @@ function Products() {
 
   return (
     <div className="gap-2 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 m-10 lg:mx-20">
-      {list.map((item, index) => (
-        <Card shadow="sm" key={index} className='hover:scale-105 transition-scale duration-75 rounded-sm' isPressable isHoverable={true} onPress={() => console.log("item pressed")}>
-          <CardBody className="overflow-visible p-0">
-            <Image
-              shadow="sm"
-              width="100%"
-              alt={item.title}
-              className="w-full object-cover h-[250px]"
-              src={item.img}
-            />
-          </CardBody>
-          <CardFooter className="text-small flex justify-between">
-            <b>{item.title}</b>
-            <p className="text-default-500">{item.price}</p>
-          </CardFooter>
-        </Card>
+      {list.map((item) => (
+        <ProductCard item={item} key={item.id}></ProductCard>
       ))}
     </div>
   )

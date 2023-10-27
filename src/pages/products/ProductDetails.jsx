@@ -1,16 +1,18 @@
 import React from 'react'
 import { Image, Button } from '@nextui-org/react'
 import {HeartIcon} from './HeartIcon';
+import ProductsSimilar from './ProductsSimilar';
 
 //esto depende bastante de que info hay sobre el objeto
-//hay imagenes extra?
-//fav
-//quiero data sticky kinda
+//hay imagenes extra? - carrusel
 //similares abajo? (otro component?)
 
 
-function ProductDetails() {
+function ProductDetails({productID = 0}) {
+
+    //en realidad debería ser una llamada para tener los detalles segun el id, que llega por el path
     const product = {
+        id: 1,
         title: "Banana",
         img: "https://nextui.org/images/fruit-7.jpeg",
         price: "$7.50",
@@ -30,7 +32,7 @@ function ProductDetails() {
                     <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
                     <hr/>
                     <div className='flex flex-row gap-2 my-3'>
-                        <Button color="success" className='text-lg bg-green-500 w-full rounded-sm p-1 text-center'>Add to cart</Button>
+                        <Button color="success" className='text-lg bg-green-400 w-full rounded-sm p-1 text-center'>Add to cart</Button>
                         <Button isIconOnly color="danger" aria-label="Favorite" className='p-2 border border-red-900 rounded-sm'>
                             <HeartIcon fill='rgb(127 29 29)' />
                         </Button>    
@@ -39,6 +41,8 @@ function ProductDetails() {
                 </div>
             </div>
         </div>
+
+        <ProductsSimilar></ProductsSimilar>
 
 <div className='text-xl m-20'>
 <p>
