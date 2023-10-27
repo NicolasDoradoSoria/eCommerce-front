@@ -5,7 +5,6 @@ import ProductsSimilar from './ProductsSimilar';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel
-//similares abajo? (otro component?)
 
 
 function ProductDetails({id}) {
