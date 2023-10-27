@@ -6,7 +6,7 @@ const ReusableLogin = ({ children, title, onSubmit }) => {
         <div className='login-container'>
             <Card className="login-box" id="card">
                 <div className='content'>
-                    <h2>{title}</h2>
+                    <h1>{title}</h1>
                     <form onSubmit={onSubmit}>
                         {children}
                         <button type="submit">

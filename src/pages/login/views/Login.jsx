@@ -6,7 +6,7 @@ import Link from "next/link";
 const Login = () => {
     return (
         <>
-            <ReusableLogin title={"login"}>
+            <ReusableLogin title={"Login"}>
                 <div className="user-box">
                     <input autoComplete="email" type="text" name="email" required autoFocus />
                     <label>Username</label>
