@@ -8,7 +8,7 @@ import ProductsSimilar from './ProductsSimilar';
 //similares abajo? (otro component?)
 
 
-function ProductDetails({productID = 0}) {
+function ProductDetails({id}) {
 
     //en realidad debería ser una llamada para tener los detalles segun el id, que llega por el path
     const product = {
@@ -45,6 +45,7 @@ function ProductDetails({productID = 0}) {
         <ProductsSimilar></ProductsSimilar>
 
 <div className='text-xl m-20'>
+    <p>id: {id}</p>
 <p>
             Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
         </p>

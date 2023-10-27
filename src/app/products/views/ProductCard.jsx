@@ -1,9 +1,12 @@
 import React from 'react'
 import { Card, CardBody, Image, CardFooter } from '@nextui-org/react'
+import Link from 'next/link';
 
 function ProductCard({item}) {
+
   return (
-    <Card shadow="sm" className='hover:scale-105 transition-scale duration-75 rounded-sm min-w-[180px]' isPressable isHoverable={true} onPress={() => console.log("item pressed")}>
+    <Link href={`/products/${item.id}`} className='hover:scale-105 transition-scale duration-75 min-w-[180px]' >
+      <Card shadow="sm" className='w-full rounded-sm' isPressable isHoverable={true}>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
@@ -18,6 +21,7 @@ function ProductCard({item}) {
             <p className="text-default-500">{item.price}</p>
           </CardFooter>
         </Card>
+    </Link>
   )
 }
 
