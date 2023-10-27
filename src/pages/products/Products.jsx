@@ -3,8 +3,13 @@ import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
 
 // the key should be the id
 // on press should navigate
+// the list should come from a call to a server
+// skeleton on loading
+// favorite
+
 
 function Products() {
+
     const list = [
         {
           title: "Orange",
