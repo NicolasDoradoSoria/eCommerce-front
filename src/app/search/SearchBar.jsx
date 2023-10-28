@@ -6,7 +6,8 @@ import { motion, LayoutGroup } from 'framer-motion';
 //make color a variable? both for icon and border
 
 function SearchBar() {
-    const iconWidth = "40px"
+    const iconWidth = "40px";
+    const color = "rgb(185 28 28)";
     const [search, setSearch] = useState(false);
 
     function handleSearchClick() {
@@ -20,13 +21,14 @@ function SearchBar() {
         <motion.div
         layout
         style={{ 
-          width: search ? iconWidth : "fit-content",
+          width: search ? "fit-content" : iconWidth,
           borderRadius: "15px",
+          borderColor: color,
         }}
-        className="flex flex-row justify-start border border-red-500 overflow-hidden">
+        className="flex flex-row justify-start border overflow-hidden">
             
             <motion.div layout style={{transition: "position"}} onClick={()=> handleSearchClick()}>
-                <SearchIcon width={iconWidth}></SearchIcon>
+                <SearchIcon width={iconWidth} color={color}></SearchIcon>
             </motion.div>
             
             <motion.input layout placeholder='Search' 
