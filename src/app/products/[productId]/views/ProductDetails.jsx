@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, Button } from '@nextui-org/react'
-import {HeartIcon} from './HeartIcon';
+import {HeartIcon} from '../../views/HeartIcon';
 import ProductsSimilar from './ProductsSimilar';
 
 //esto depende bastante de que info hay sobre el objeto
@@ -26,7 +26,7 @@ function ProductDetails({id}) {
 
             <div className='w-full'>
                 <div className='sticky top-0  p-5'>
-                    <h1 className='text-4xl text-center font-extralight p-1'>{product.title}</h1>
+                    <h1 className='text-4xl text-start font-extralight p-1'>{product.title}</h1>
                     <hr/>
                     <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
                     <hr/>

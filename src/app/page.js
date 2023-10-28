@@ -5,7 +5,7 @@ export default function Home() {
   return (
    <>
    <NextUIProvider>
-    <h1>Home sweet home. Try the routes /login and /products</h1>
+    <h1>Home sweet home. Try the routes /login and /products. Also maybe /search</h1>
    </NextUIProvider>
    </>
   )

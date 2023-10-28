@@ -1,5 +1,5 @@
 "use client"
-import ProductDetails from "../views/ProductDetails"
+import ProductDetails from "./views/ProductDetails"
 
 export default function Page({params}) {
   return (

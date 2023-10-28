@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './ProductCard'
+import ProductCard from '../../views/ProductCard'
 
 //alternativamente podría ser un carrusel con paginación.
 
@@ -121,7 +121,7 @@ function ProductsSimilar() {
     <div className='p-5'>
         <h1 className='p-2 text-light'>You may also like...</h1>
         <div className='w-full overflow-x-scroll overflow-y-hidden h-fit'>
-            <div className='flex flex-row gap-3 w-fit'>
+            <div className='flex flex-row gap-5 w-fit'>
                 {list.map((item) => (
                     <ProductCard item={item} key={item.id}></ProductCard>
                 ))}
