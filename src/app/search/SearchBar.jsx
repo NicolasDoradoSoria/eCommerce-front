@@ -8,6 +8,7 @@ import { motion, LayoutGroup } from 'framer-motion';
 //faltan otros filtros de búsqueda
 
 function SearchBar({inconWidth = "40px", color="rgb(185 28 28)"}) {
+
     const [search, setSearch] = useState(false);
 
     function handleSearchClick() {

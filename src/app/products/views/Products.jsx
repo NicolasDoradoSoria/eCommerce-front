@@ -119,7 +119,7 @@ function Products() {
       ];
 
   return (
-    <div className="gap-2 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 m-10 lg:mx-20">
+    <div className="productGrid lg:mx-20 m-10">
       {list.map((item) => (
         <ProductCard item={item} key={item.id}></ProductCard>
       ))}
