@@ -3,7 +3,6 @@ import ProductCard from './ProductCard';
 
 // the list should come from a call to a server
 // skeleton on loading
-// favorite and add to cart? - es algo que debería aparecer solo acá o en ProductsSimilar tmb?
 
 
 function Products() {

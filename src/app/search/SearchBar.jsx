@@ -3,11 +3,11 @@ import SearchIcon from './SearchIcon'
 import { useState } from 'react';
 import { motion, LayoutGroup } from 'framer-motion';
 
-//make color a variable? both for icon and border
+//falta que enter haga buscar
+//falta la lógica de buscarlo
+//faltan otros filtros de búsqueda
 
-function SearchBar() {
-    const iconWidth = "40px";
-    const color = "rgb(185 28 28)";
+function SearchBar({inconWidth = "40px", color="rgb(185 28 28)"}) {
     const [search, setSearch] = useState(false);
 
     function handleSearchClick() {

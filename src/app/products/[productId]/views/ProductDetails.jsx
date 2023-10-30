@@ -8,10 +8,11 @@ import ProductsSimilar from './ProductsSimilar';
 
 
 function ProductDetails({id}) {
+    console.log("el id que elegiste es "+id);
 
     //en realidad debería ser una llamada para tener los detalles segun el id, que llega por el path
     const product = {
-        id: 1,
+        id: id,
         title: "Banana",
         img: "https://nextui.org/images/fruit-7.jpeg",
         price: "$7.50",
@@ -41,60 +42,7 @@ function ProductDetails({id}) {
             </div>
         </div>
 
-        <ProductsSimilar></ProductsSimilar>
-
-<div className='text-xl m-20'>
-    <p>id: {id}</p>
-<p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-        <p>
-            Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita.
-        </p>
-</div>
-        
+        <ProductsSimilar></ProductsSimilar>        
 
     </>
     )
