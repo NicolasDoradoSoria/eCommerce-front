@@ -1,9 +1,10 @@
-import ReusableLogin from "@/pages/login/components/ReusableLogin";
+import 'tailwindcss/tailwind.css';
+import '../styles/login.css'
 import Link from "next/link";
 
-const SignUp = () => {
+const Login = () => {
     return (
-        <ReusableLogin title={"Registrase"}>
+        <>
             <div className="user-box">
                 <input autoComplete="email" type="text" name="email" required autoFocus />
                 <label>Username</label>
@@ -14,11 +15,11 @@ const SignUp = () => {
             </div>
             <div className='link-Container'>
                 <Link href={"/nueva-cuenta"} className="link">
-                    <p>tienes cuenta? Logeate</p>
+                    <p>No tienes cuenta? Registrate</p>
                 </Link>
             </div>
-        </ReusableLogin>
+        </>
     );
 }
 
-export default SignUp;
+export default Login;
