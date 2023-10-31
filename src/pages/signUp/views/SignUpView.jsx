@@ -3,7 +3,10 @@ import UserManagement from "@/components/UserManagement";
 const SignUpView = () => {
     return (
         <UserManagement title={"Registrar"}>
-            <UserManagement.SignUp />
+            <UserManagement.EmailInput/>
+            <UserManagement.PasswordInput/>
+            <UserManagement.ConfirmInput/>
+            <UserManagement.UserLink/>
         </UserManagement>
     );
 }

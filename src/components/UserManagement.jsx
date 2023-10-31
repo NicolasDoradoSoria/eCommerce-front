@@ -1,16 +1,24 @@
 import '../pages/login/styles/login.css';
 import { Children } from "react";
-import Login from "../pages/login/components/Login";
 import 'tailwindcss/tailwind.css';
 import { cloneElement } from "react";
-import SignUp from '../pages/signUp/components/SignUp';
+import EmailInput from './EmailInput';
+import ConfirmInput from './ConfirmInput';
+import PasswordInput from './PasswordInput';
+import UserLink from './UserLink';
 
 const UserManagement = ({ children, title, onSubmit }) => {
     const renderChildren = Children.map(children, (child) => {
-        if (child.type === Login) {
+        if (child.type === EmailInput) {
             return cloneElement(child);
         }
-        if (child.type === SignUp) {
+        if (child.type === PasswordInput) {
+            return cloneElement(child);
+        }
+        if (child.type === ConfirmInput) {
+            return cloneElement(child);
+        }
+        if (child.type === UserLink) {
             return cloneElement(child);
         }
         return child;
@@ -36,8 +44,9 @@ const UserManagement = ({ children, title, onSubmit }) => {
         </div>
     );
 }
-UserManagement.Login = Login
-UserManagement.SignUp = SignUp
-
+UserManagement.EmailInput = EmailInput
+UserManagement.ConfirmInput = ConfirmInput
+UserManagement.PasswordInput = PasswordInput
+UserManagement.UserLink = UserLink
 
 export default UserManagement;

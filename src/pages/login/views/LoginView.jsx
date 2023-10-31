@@ -3,7 +3,9 @@ import UserManagement from "../../../components/UserManagement";
 const LoginView = () => {
     return (
         <UserManagement title={"Iniciar secion"}>
-            <UserManagement.Login/>
+            <UserManagement.EmailInput/>
+            <UserManagement.PasswordInput/>
+            <UserManagement.UserLink/>
         </UserManagement>
     );
 }
