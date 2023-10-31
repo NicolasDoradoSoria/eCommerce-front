@@ -1,8 +1,8 @@
 import '../pages/login/styles/login.css';
 
-const ConfirmInput = () => {
+const ConfirmInput = ({inputChange}) => {
     return ( <div className="user-box">
-    <input type="password" name="confirmPassword" required autoComplete="current-password" />
+    <input type="password" name="confirmPassword" required onChange={inputChange} autoComplete="current-password" />
     <label>confirmar contraseña</label>
 </div> );
 }
