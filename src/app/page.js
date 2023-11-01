@@ -1,12 +1,10 @@
 "use client"
-import { NextUIProvider } from '@nextui-org/react'
+import { Button } from '@nextui-org/react'
 
 export default function Home() {
   return (
    <>
-   <NextUIProvider>
-    <h1>Home sweet home. Try the routes /login and /products. Also maybe /search</h1>
-   </NextUIProvider>
+    <h1>Home. Try the routes /login, /signUp, /products and /search</h1>
    </>
   )
 }
