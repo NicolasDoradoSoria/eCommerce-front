@@ -1,4 +1,4 @@
-import '../pages/login/styles/login.css';
+import '../app/login/styles/login.css';
 import { Children } from "react";
 import 'tailwindcss/tailwind.css';
 import { cloneElement } from "react";
@@ -8,6 +8,7 @@ import PasswordInput from './PasswordInput';
 import UserLink from './UserLink';
 
 const UserManagement = ({ children, title, onSubmit }) => {
+
     const renderChildren = Children.map(children, (child) => {
         if (child.type === EmailInput) {
             return cloneElement(child);

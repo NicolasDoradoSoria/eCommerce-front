@@ -1,7 +1,11 @@
+"use client"
+
+import UseUserContext from "@/context/hook/UseUserContext";
 import { useState } from "react";
 
 const UseLogin = () => {
 
+    const {login} = UseUserContext()
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -15,11 +19,11 @@ const UseLogin = () => {
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        // login({ email, password });
+        login({ email, password });
     };
 
     return {
-        inputChange, onSubmit
+        inputChange, onSubmit,
     }
 }
 

@@ -1,4 +1,4 @@
-import '../pages/login/styles/login.css';
+import '../app/login/styles/login.css';
 
 const PasswordInput = ({inputChange}) => {
     return (<div className="user-box">

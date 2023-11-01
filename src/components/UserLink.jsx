@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import '../pages/login/styles/login.css';
+import '../app/login/styles/login.css';
 
 const UserLink = () => {
     return ( <div className='link-Container'>
