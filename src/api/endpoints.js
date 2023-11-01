@@ -33,3 +33,7 @@ export async function getProductSimilar(id) {
     
     return await res.data
 }
+
+export async function getProductsList() {
+    
+}

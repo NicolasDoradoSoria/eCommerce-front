@@ -3,27 +3,22 @@ import { Image, Button } from '@nextui-org/react'
 import {HeartIcon} from '../../views/HeartIcon';
 import { getProductDetails } from '@/api/endpoints';
 import useSWR from 'swr';
+import useFavorite from '../../hooks/useFavorite';
+import { exampleProduct } from '../../dataTemporary';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel
 
 
 function ProductDetails({id}) {
-    console.log("el id que elegiste es "+id);
-
+    const {handleFavorite, favorite} = useFavorite(false);
 
     //const {data, isLoading, error} = useSWR(`ProductDetails${id}`, async (name) => await getProductDetails(id));
     const isLoading = false
     const error = false
 
     //en realidad debería ser una llamada para tener los detalles segun el id, que llega por el path
-    const product = {
-        id: id,
-        title: "Banana",
-        img: "https://nextui.org/images/fruit-7.jpeg",
-        price: "$7.50",
-        description: "Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita."
-    }
+    const product = exampleProduct;
 
     if (isLoading) {
         return (<>
@@ -46,8 +41,8 @@ function ProductDetails({id}) {
                         <hr/>
                         <div className='flex flex-row gap-2 my-3'>
                             <Button color="success" className='text-lg bg-green-400 w-full rounded-sm p-1 text-center'>Add to cart</Button>
-                            <Button isIconOnly color="danger" aria-label="Favorite" className='p-2 border border-red-900 rounded-sm'>
-                                <HeartIcon fill='rgb(127 29 29)' />
+                            <Button isIconOnly color="danger" aria-label="Favorite" className='p-2 border border-red-900 rounded-sm' onPress={handleFavorite}>
+                                <HeartIcon fill='rgb(127 29 29)' filled={favorite} />
                             </Button>    
                         </div>
                         <div className='p-5 text-sm'>{product.description}</div>
