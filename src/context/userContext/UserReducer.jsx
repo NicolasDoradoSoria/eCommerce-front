@@ -14,17 +14,17 @@ export default (state, action) => {
     case LOGIN_SUCCESSFUL:
     case REGISTER_SUCCESS:
       const alert = {
-        msg: action.payload.msg,
+        // msg: action.payload.msg,
         category: "success",
       }
-      localStorage.setItem("token", action.payload.token);
+      // localStorage.setItem("token", action.payload.token);
       return {
         ...state,
         authenticated: true,
         msg: alert,
       };
     case REGISTER_ERROR:
-      localStorage.removeItem("token");
+      // localStorage.removeItem("token");
       return {
         ...state,
         token: null,
@@ -51,7 +51,7 @@ export default (state, action) => {
         loading: false
       }
     case SIGN_OFF:
-      localStorage.removeItem("token");
+      // localStorage.removeItem("token");
       return {
         ...state,
         token: null,

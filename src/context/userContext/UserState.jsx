@@ -10,6 +10,8 @@ import {
   GET_USER_SUCCESSFUL,
   SIGN_OFF,
 } from "../types";
+import { loginService, sigUpService } from "@/service/User.service";
+import token from "@/config/token";
 
 const UserState = (props) => {
   const initialState = {
@@ -26,7 +28,19 @@ const UserState = (props) => {
   // registra un usuario
   const registerUser = async (data) => {
     try {
-      
+      const response = await sigUpService(data)
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: response.data,
+      });
+
+      authenticatedUser();
+
+      setTimeout(() => {
+        dispatch({
+          type: DELETE_MSG,
+        })
+      }, 5000)
     } catch (error) {
       console.log(error.response.data)
       const alert = {
@@ -42,11 +56,21 @@ const UserState = (props) => {
 
   // devuelve el usuario autentificado
   const authenticatedUser = async () => {
-
-    const token = localStorage.getItem("token");
-    
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   token(token);
+    // }
     try {
-      
+      // const respuesta = await clienteAxios.get("/api/users");
+      dispatch({
+        type: GET_USER,
+        // payload: respuesta.data.user,
+      });
+      setTimeout(() => {
+        dispatch({
+          type: GET_USER_SUCCESSFUL,
+        })
+      }, 5000)
     } catch (error) {
       console.log(error.response.data.msg)
     }
@@ -55,7 +79,24 @@ const UserState = (props) => {
   // pide una peticon a la api para iniciar sesion
   const login = async (data) => {
     try {
-      
+      const response = await loginService(data)
+      console.log(response)
+      dispatch({
+        type: LOGIN_SUCCESSFUL,
+        payload: response.data
+      });
+
+      setTimeout(() => {
+        dispatch({
+          type: DELETE_MSG,
+        })
+      }, 5000)
+
+      setTimeout(() => {
+
+        authenticatedUser();
+      }, 50)
+
     } catch (error) {
       console.log(error.response.data.msg)
       const alert = {
