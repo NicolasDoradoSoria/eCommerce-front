@@ -2,12 +2,12 @@ import React from 'react'
 import { Card, CardBody, Image, CardFooter, Button } from '@nextui-org/react'
 import Link from 'next/link';
 import { HeartIcon } from './HeartIcon';
-import useFavorite from '../hooks/useFavorite';
+import useToggle from '@/app/hooks/useToggle';
 
 function ProductCard({item}) {
 
   //each item should ask if they are a favorite for inital state and also update DB on change. Probs should pass id actually. we'll see
-  const {handleFavorite, favorite} = useFavorite(false);
+  const {handleValue: handleFavorite, value: favorite} = useToggle(false);
 
   return (
     <div className='w-full hover:scale-105 transition-scale duration-75 relative'>

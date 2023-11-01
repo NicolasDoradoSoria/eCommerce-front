@@ -1,19 +1,15 @@
 import React from 'react'
 import SearchIcon from './SearchIcon'
-import { useState } from 'react';
+import useToggle from '../hooks/useToggle';
 import { motion, LayoutGroup } from 'framer-motion';
 
 //falta que enter haga buscar
 //falta la lógica de buscarlo
 //faltan otros filtros de búsqueda
 
-function SearchBar({inconWidth = "40px", color="rgb(185 28 28)"}) {
+function SearchBar({iconWidth = "40px", color="rgb(185 28 28)"}) {
 
-    const [search, setSearch] = useState(false);
-
-    function handleSearchClick() {
-        setSearch(!search);
-    }
+  const {handleValue: handleSearchClick, value: search} = useToggle(false);
 
   return (
     <>

@@ -3,7 +3,7 @@ import { Image, Button } from '@nextui-org/react'
 import {HeartIcon} from '../../views/HeartIcon';
 import { getProductDetails } from '@/api/endpoints';
 import useSWR from 'swr';
-import useFavorite from '../../hooks/useFavorite';
+import useToggle from '@/app/hooks/useToggle';
 import { exampleProduct } from '../../dataTemporary';
 
 //esto depende bastante de que info hay sobre el objeto
@@ -11,7 +11,7 @@ import { exampleProduct } from '../../dataTemporary';
 
 
 function ProductDetails({id}) {
-    const {handleFavorite, favorite} = useFavorite(false);
+    const {handleValue: handleFavorite, value: favorite} = useToggle(false);
 
     //const {data, isLoading, error} = useSWR(`ProductDetails${id}`, async (name) => await getProductDetails(id));
     const isLoading = false

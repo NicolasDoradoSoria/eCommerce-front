@@ -110,7 +110,7 @@ export const fruits = [
   ];
 
 export const exampleProduct = {
-    id: id,
+    id: 1,
     title: "Raspberry",
     img: "https://nextui.org/images/fruit-3.jpeg",
     price: "$10.00",
