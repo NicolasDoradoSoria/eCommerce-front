@@ -11,9 +11,9 @@ function ProductCard({item}) {
 
   return (
     <div className='w-full hover:scale-105 transition-scale duration-75 relative rounded-sm overflow-hidden'>
-      <Button isIconOnly disableRipple aria-label="Favorite" onClick={handleFavorite} 
+      <Button color='secondary' variant='flat' isIconOnly disableRipple aria-label="Favorite" onClick={handleFavorite} 
       className='p-2 absolute t-0 s-0 z-20 overflow-hidden bg-transparent'>
-          <HeartIcon fill='rgb(127 29 29)' filled={favorite} />
+          <HeartIcon filled={favorite} />
       </Button>  
       <Card shadow="sm" className='w-full min-w-[180px]' isPressable isHoverable={true}>
         <Link href={`/products/${item.id}`}>

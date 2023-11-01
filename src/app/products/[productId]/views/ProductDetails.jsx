@@ -29,21 +29,20 @@ function ProductDetails({id}) {
     } else {
         return (<>
             <div className='flex flex-row justify-start mx-20 my-10 rounded-md
-             drop-shadow-xl border-1 overflow-hidden border-black bg-content2
+             drop-shadow-xl bg-content2
              text-foreground h-5/6'>
-                <div>
-                    <Image src={product.img} alt={product.title} width='100%' className='rounded-none' ></Image>
-                </div>
-    
+                    
+                <Image src={product.img} alt={product.title} width='100%' className='rounded-s-md rounded-e-none' ></Image>
+
                 <div className='w-full'>
-                    <div className='sticky top-0  p-5'>
+                    <div className='sticky top-0 p-5'>
                         <h1 className='text-4xl text-start font-extralight p-1'>{product.title}</h1>
                         <hr/>
                         <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
                         <hr/>
                         <div className='flex flex-row gap-2 my-3'>
-                            <Button color="success" className='text-lg bg-green-600 w-full rounded-sm p-1 text-center'>Add to cart</Button>
-                            <Button isIconOnly aria-label="Favorite" className='p-2 border border-red-900 rounded-sm bg-red-700' onPress={handleFavorite}>
+                            <Button color="primary" className='text-lg w-full rounded-sm p-1 text-center'>Add to cart</Button>
+                            <Button color='secondary' isIconOnly aria-label="Favorite" className='p-2 rounded-sm' onPress={handleFavorite}>
                                 <HeartIcon filled={favorite} />
                             </Button>    
                         </div>
