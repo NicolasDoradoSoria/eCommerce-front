@@ -31,7 +31,7 @@ function SearchBar({iconWidth = "40px", color="rgb(185 28 28)"}) {
             <motion.input layout placeholder='Search' 
             className=' 
             focus:outline-none 
-            focus:bg-slate-100 
+            focus:bg-content3 
             transition-colors 
             duration-100
             object-cover

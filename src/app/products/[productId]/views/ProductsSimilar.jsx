@@ -24,7 +24,7 @@ function ProductsSimilar({id}) {
       return (
         <div className='p-5'>
             <h1 className='p-2 text-light'>You may also like...</h1>
-            <div className='w-full overflow-x-scroll overflow-y-hidden h-fit'>
+            <div className='w-full overflow-x-scroll overflow-y-visible h-fit p-3'>
                 <div className='flex flex-row gap-5 w-fit'>
                     {list.map((item) => (
                         <ProductCard item={item} key={item.id}></ProductCard>

@@ -28,9 +28,11 @@ function ProductDetails({id}) {
         return (<>ERROR</>)
     } else {
         return (<>
-            <div className='flex flex-row justify-start mx-20 my-10 rounded-md drop-shadow-xl border-1 border-black bg-white h-5/6'>
+            <div className='flex flex-row justify-start mx-20 my-10 rounded-md
+             drop-shadow-xl border-1 overflow-hidden border-black bg-content2
+             text-foreground h-5/6'>
                 <div>
-                    <Image src={product.img} alt={product.title} width='100%' className='' ></Image>
+                    <Image src={product.img} alt={product.title} width='100%' className='rounded-none' ></Image>
                 </div>
     
                 <div className='w-full'>
@@ -40,9 +42,9 @@ function ProductDetails({id}) {
                         <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
                         <hr/>
                         <div className='flex flex-row gap-2 my-3'>
-                            <Button color="success" className='text-lg bg-green-400 w-full rounded-sm p-1 text-center'>Add to cart</Button>
-                            <Button isIconOnly color="danger" aria-label="Favorite" className='p-2 border border-red-900 rounded-sm' onPress={handleFavorite}>
-                                <HeartIcon fill='rgb(127 29 29)' filled={favorite} />
+                            <Button color="success" className='text-lg bg-green-600 w-full rounded-sm p-1 text-center'>Add to cart</Button>
+                            <Button isIconOnly aria-label="Favorite" className='p-2 border border-red-900 rounded-sm bg-red-700' onPress={handleFavorite}>
+                                <HeartIcon filled={favorite} />
                             </Button>    
                         </div>
                         <div className='p-5 text-sm'>{product.description}</div>
