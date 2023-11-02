@@ -3,7 +3,7 @@ import { Image, Button } from '@nextui-org/react'
 import {HeartIcon} from '../../components/HeartIcon';
 import { getProductDetails } from '@/api/endpoints';
 import useSWR from 'swr';
-import useToggle from '@/app/hooks/useToggle';
+import useToggle from '@/hooks/useToggle';
 import { exampleProduct } from '../../dataTemporary';
 
 //esto depende bastante de que info hay sobre el objeto

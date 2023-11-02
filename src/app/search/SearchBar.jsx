@@ -1,13 +1,18 @@
 import React from 'react'
 import SearchIcon from './SearchIcon'
-import useToggle from '../hooks/useToggle';
+import useToggle from '../../hooks/useToggle';
 import { motion, LayoutGroup } from 'framer-motion';
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../../../tailwind.config';
+
+const fullConfig = resolveConfig(tailwindConfig)
+
 
 //falta que enter haga buscar
 //falta la lógica de buscarlo
 //faltan otros filtros de búsqueda
 
-function SearchBar({iconWidth = "40px", color="rgb(185 28 28)"}) {
+function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColor}) {
 
   const {handleValue: handleSearchClick, value: search} = useToggle(false);
 

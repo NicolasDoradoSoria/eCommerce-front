@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardBody, Image, CardFooter, Button } from '@nextui-org/react'
 import Link from 'next/link';
 import { HeartIcon } from './HeartIcon';
-import useToggle from '@/app/hooks/useToggle';
+import useToggle from '@/hooks/useToggle';
 
 function ProductCard({item}) {
 
