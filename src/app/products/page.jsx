@@ -1,5 +1,5 @@
 "use client"
-import Products from './views/Products'
+import Products from './components/Products'
 
 export default function Page() {
   return (

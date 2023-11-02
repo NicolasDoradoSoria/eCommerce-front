@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from '../../views/ProductCard'
+import ProductCard from '../../components/ProductCard'
 import useSWR from 'swr';
 import { getProductSimilar } from '@/api/endpoints';
 import { fruits } from '../../dataTemporary';

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, Button } from '@nextui-org/react'
-import {HeartIcon} from '../../views/HeartIcon';
+import {HeartIcon} from '../../components/HeartIcon';
 import { getProductDetails } from '@/api/endpoints';
 import useSWR from 'swr';
 import useToggle from '@/app/hooks/useToggle';

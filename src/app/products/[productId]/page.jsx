@@ -1,6 +1,6 @@
 "use client"
-import ProductDetails from "./views/ProductDetails"
-import ProductsSimilar from "./views/ProductsSimilar"
+import ProductDetails from "./components/ProductDetails"
+import ProductsSimilar from "./components/ProductsSimilar"
 
 export default function Page({params}) {
   return (
