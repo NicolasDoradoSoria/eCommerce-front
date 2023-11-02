@@ -7,7 +7,7 @@ import ConfirmInput from './ConfirmInput';
 import PasswordInput from './PasswordInput';
 import UserLink from './UserLink';
 
-const UserManagement = ({ children, title, onSubmit }) => {
+const UserManagement = ({ children, title, onSubmit}) => {
 
     const renderChildren = Children.map(children, (child) => {
         if (child.type === EmailInput) {

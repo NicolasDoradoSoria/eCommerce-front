@@ -1,12 +1,15 @@
+import UseUserContext from "@/context/hook/UseUserContext";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const UseSignUp = () => {
-
+    const { registerUser,msg, authenticated } = UseUserContext()
     const [user, setUser] = useState({
         email: "",
         password: "",
         confirmPassword: ""
     });
+    const { email, password, confirmPassword } = user
 
     const inputChange = (e) => {
         setUser({
@@ -16,9 +19,20 @@ const UseSignUp = () => {
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        // login({ email, password });
+        registerUser({ email, password, confirmPassword });
     };
 
+    useEffect(() => {
+        if (authenticated) {
+
+            navigate("/")
+        }
+
+        if (msg) {
+            // openSnackbar(msg.msg, msg.category)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [authenticated, msg]);
     return {
         inputChange, onSubmit
     }
