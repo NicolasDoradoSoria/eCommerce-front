@@ -28,15 +28,17 @@ function ProductDetails({id}) {
         return (<>ERROR</>)
     } else {
         return (<>
-            <div className='flex flex-row justify-start mx-20 my-10 rounded-md
+            <div className='flex flex-col sm:flex-row items-center sm:items-stretch justify-start mx-5 md:mx-20 my-10 rounded-md
              drop-shadow-xl bg-content2
              text-foreground h-5/6'>
-                    
-                <Image src={product.img} alt={product.title} width='100%' className='rounded-s-md rounded-e-none' ></Image>
+                
+                <div className='w-fit shrink max-w-full min-w-[50px] object-contain'>
+                    <Image src={product.img} alt={product.title} className='rounded-s-none sm:rounded-s-md rounded-e-none w-full max-w-sm sm:max-w-full' ></Image>
+                </div>
 
                 <div className='w-full'>
                     <div className='sticky top-0 p-5'>
-                        <h1 className='text-4xl text-start font-extralight p-1'>{product.title}</h1>
+                        <h1 className='text-2xl sm:text-4xl text-start font-extralight p-1'>{product.title}</h1>
                         <hr/>
                         <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
                         <hr/>
