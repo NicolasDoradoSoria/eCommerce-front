@@ -1,0 +1,24 @@
+/*this is just for visualization purposes, once SearchBar is properly positioned, this won't be needed*/
+.sth {
+    width: 300px;
+    background-color: rgb(6, 96, 36);
+    margin: 2px;
+    border: 1px black;
+    border-radius: 3px;
+}
+
+.container {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(43, 47, 78);
+    padding: 5px;
+}
+
+.searchContain {
+    display: flex;
+    justify-content: start;
+    width: 500px;
+}

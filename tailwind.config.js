@@ -19,7 +19,25 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    colors: {
+      searchColor: "#aa2222"
+    }
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [nextui({
+    themes: {
+      dark: {
+        colors: {
+          primary: {
+            DEFAULT: "#1bd34c",
+            foreground: "#fff"
+          },
+          secondary: {
+            DEFAULT: "#aa2222",
+            foreground: "#fff"
+          }
+        }
+      }
+    }
+  })],
 }
