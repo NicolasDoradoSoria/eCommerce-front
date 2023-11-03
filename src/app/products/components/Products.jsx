@@ -3,6 +3,8 @@ import ProductCard from './ProductCard';
 import { fruits } from '../dataTemporary';
 import useSWR from 'swr';
 import { getProductList } from '@/api/endpoints';
+import SkeletonCard from './SkeletonCard';
+import ErrorCard from './ErrorCard';
 
 // the list should come from a call to a server
 // skeleton on loading
@@ -14,22 +16,33 @@ function Products() {
   const list = fruits;
 
   //const {data, isLoading, error} = useSWR("ProductList", getProductsList)
-  const isLoading = false
+  const isLoading = true
   const error = false
 
+
+  var content;
+
   if (isLoading) {
-    return <>LOADING</>
+    var lista = []
+    for (var i = 0; i < 20; i++) {
+      lista = lista.concat(i)
+    }
+
+    content = lista.map((i) => <SkeletonCard key={i} />)
+
   } else if (error) {
-    return <>ERROR</>
+    return <ErrorCard></ErrorCard>
   } else {
-      return (
-        <div className="productGrid lg:mx-20 m-10">
-          {list.map((item) => (
-            <ProductCard item={item} key={item.id}></ProductCard>
-          ))}
-        </div>
-      )
+      content = list.map((item) => (
+        <ProductCard item={item} key={item.id}></ProductCard>
+      ))
   }
+
+  return (
+    <div className="productGrid lg:mx-20 m-10">
+      {content}
+    </div>
+  )
 }
 
 export default Products
