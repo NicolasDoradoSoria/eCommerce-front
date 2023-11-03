@@ -112,7 +112,13 @@ export const fruits = [
 export const exampleProduct = {
     id: 1,
     title: "Raspberry",
-    img: "https://nextui.org/images/fruit-3.jpeg",
+    imgs: [
+      "https://nextui.org/images/fruit-3.jpeg",
+      "https://nextui.org/images/fruit-4.jpeg",
+      "https://nextui.org/images/fruit-5.jpeg",
+      "https://nextui.org/images/fruit-6.jpeg",
+      "https://nextui.org/images/fruit-8.jpeg"
+    ],
     price: "$10.00",
     description: "Voluptatibus commodi tenetur enim est aperiam quisquam molestias. Repellat ad perspiciatis adipisci aut qui. Qui placeat odit saepe saepe blanditiis. Ut magni explicabo et aut tempore debitis beatae deserunt. Recusandae qui quos vero aut eum labore. At ut qui maiores expedita."
 }
