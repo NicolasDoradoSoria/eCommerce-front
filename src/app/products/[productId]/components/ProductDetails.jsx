@@ -40,7 +40,7 @@ function ProductDetails({id}) {
         return (<>
             <div className='flex flex-col sm:flex-row items-center content-stretch sm:items-stretch justify-start mx-5 md:mx-20 my-10 rounded-md
              drop-shadow-xl bg-content2
-             text-foreground h-[600px]'>
+             text-foreground sm:h-[600px]'>
                 
                 <div className='shrink max-w-full max-h-full min-w-[50px] object-contain flex justify-center items-center overflow-hidden'>
                     <Image src={product.imgs[active]} alt={product.title} style={{transformOrigin: origin}} 
@@ -61,12 +61,12 @@ function ProductDetails({id}) {
                             </Button>    
                         </div>
                         <div className='p-5 text-sm'>{product.description}</div>
-                        <div className='flex flex-row gap-1'>
+                        <div className='pc-other-images flex flex-row gap-1'>
                             {product.imgs.map((src, index) => {
                                 return (
                                 <Image src={src} alt={product.title} key={index}
                                 className={`object-cover w-[80px] h-[80px] rounded-none `+(active==index ? " outline" : "")}
-                                onMouseEnter={()=>handleActive(index)}></Image>
+                                onMouseEnter={()=>handleActive(index)} onClick={()=> handleActive(index)}></Image>
                                 )
                             })
                             }
