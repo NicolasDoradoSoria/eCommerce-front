@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Image, Button } from '@nextui-org/react'
-import {HeartIcon} from '../../components/HeartIcon';
+import {HeartIcon} from '@/components/products/HeartIcon';
 import { getProductDetails } from '@/api/endpoints';
 import useSWR from 'swr';
 import useToggle from '@/hooks/useToggle';
-import { exampleProduct } from '../../dataTemporary';
+import { exampleProduct } from '@/components/products/dataTemporary';
 import { useZoom } from '../hooks/useZoom';
 import { useCarousel } from '../hooks/useCarousel';
 import { Skeleton } from '@nextui-org/react';
 import "../styles.css"
-import ErrorCard from '../../components/ErrorCard';
+import ErrorCard from '@/components/products/ErrorCard';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel

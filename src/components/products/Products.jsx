@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductCard from './ProductCard';
-import { fruits } from '../dataTemporary';
+import { fruits } from './dataTemporary';
 import useSWR from 'swr';
 import { getProductList } from '@/api/endpoints';
 import SkeletonCard from './SkeletonCard';
@@ -16,7 +16,7 @@ function Products() {
   const list = fruits;
 
   //const {data, isLoading, error} = useSWR("ProductList", getProductsList)
-  const isLoading = true
+  const isLoading = false
   const error = false
 
 

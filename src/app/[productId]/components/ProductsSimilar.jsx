@@ -1,10 +1,10 @@
 import React from 'react'
-import ProductCard from '../../components/ProductCard'
+import ProductCard from '@/components/products/ProductCard'
 import useSWR from 'swr';
 import { getProductSimilar } from '@/api/endpoints';
-import { fruits } from '../../dataTemporary';
-import SkeletonCard from '../../components/SkeletonCard';
-import ErrorCard from '../../components/ErrorCard';
+import { fruits } from '@/components/products/dataTemporary';
+import SkeletonCard from '@/components/products/SkeletonCard';
+import ErrorCard from '@/components/products/ErrorCard';
 
 //alternativamente podría ser un carrusel con paginación.
 

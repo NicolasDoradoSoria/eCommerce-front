@@ -5,12 +5,14 @@ import '../Styles.css';
 import useCategory from '../hooks/useCategory';
 import useNavbar from '../hooks/useNavbar';
 import useMobile from '../hooks/useMobile';
-import { Input, Skeleton } from '@nextui-org/react';
+import { Skeleton } from '@nextui-org/react';
 import Link from 'next/link';
 import NavbarMenuMobile from './NavbarMenuMobile';
 import NavbarMenuItems from './NavbarMenuItems';
 import NavbarUserItems from './NavbarUserItems';
 import useAuthentication from '../hooks/useAuthentication';
+import SearchBar from "./search/SearchBar"
+import NavbarGuestItems from "./NavbarGuestItems"
 
 const adminPath = [
     {
@@ -77,13 +79,10 @@ const Navbar = () => {
                                 adminPath={adminPath}
                             />
                             :
-                            <NavbarGuestItems navigateToLogin={navigateToLogin} />
+                            <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link"/>
                         }
-                        <div className='navbar_item'>
-                            <div className='navbar_input'>
-                                <Input label="Buscar Producto" variant="underlined"/>
-                            </div>
-                        </div>
+
+                        <SearchBar></SearchBar>
                     </div>
                 </> :
                 <header className='header'><Skeleton className="w-full h-3" /></header>

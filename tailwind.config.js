@@ -20,7 +20,7 @@ module.exports = {
       },
     },
     colors: {
-      searchColor: "#aa2222"
+      searchColor: "#1d95f2"
     }
   },
   darkMode: "class",

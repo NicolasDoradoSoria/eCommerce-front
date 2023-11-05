@@ -1,9 +1,9 @@
 import React from 'react'
 import SearchIcon from './SearchIcon'
-import useToggle from '../../hooks/useToggle';
+import { useSearch } from './hooks/useSearch';
 import { motion, LayoutGroup } from 'framer-motion';
 import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from '../../../tailwind.config';
+import tailwindConfig from '../../../../../tailwind.config';
 
 const fullConfig = resolveConfig(tailwindConfig)
 
@@ -14,11 +14,12 @@ const fullConfig = resolveConfig(tailwindConfig)
 
 function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColor}) {
 
-  const {handleValue: handleSearchClick, value: search} = useToggle(false);
+  const {handleInput, handleKeyDown, handleSearchClick, search, input} = useSearch()
+
 
   return (
     <>
-    <div className='flex flex-row justify-start w-[450px]'>
+    <div className='flex flex-row justify-start w-fit'>
       <LayoutGroup>
         <motion.div
         layout
@@ -29,11 +30,15 @@ function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColo
         }}
         className="flex flex-row justify-start border overflow-hidden">
             
-            <motion.div layout style={{transition: "position"}} onClick={()=> handleSearchClick()}>
+            <motion.div layout style={{transition: "position"}} onClick={handleSearchClick}>
                 <SearchIcon width={iconWidth} color={color}></SearchIcon>
             </motion.div>
             
             <motion.input layout placeholder='Search' 
+            onChange={(e)=>handleInput(e)}
+            name='search'
+            onKeyDown={(e)=>handleKeyDown(e)}
+            value={input}
             className=' 
             focus:outline-none 
             focus:bg-content3 
