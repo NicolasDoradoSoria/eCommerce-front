@@ -1,5 +1,6 @@
 import useToggle from "@/hooks/useToggle";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export function useSearch() {
   const {handleValue: handleSearchToggle, value: search} = useToggle(false);
@@ -30,8 +31,9 @@ export function useSearch() {
   }
 
   //TODO: send Query
+  const router = useRouter();
   const sendQuery = () => {
-    console.log(input);
+    router.push(`/search/${input}`)
   }
 
   return {handleInput, handleKeyDown, handleSearchClick, search, input}

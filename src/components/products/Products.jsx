@@ -10,9 +10,9 @@ import ErrorCard from './ErrorCard';
 // skeleton on loading
 
 
-function Products() {
+function Products({searchKey=""}) {
 
-  //temporary solution to not having DB
+  //temporary solution to not having DB - use searchKey to fetch
   const list = fruits;
 
   //const {data, isLoading, error} = useSWR("ProductList", getProductsList)
