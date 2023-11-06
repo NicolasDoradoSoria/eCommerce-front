@@ -40,7 +40,7 @@ const adminPath = [
 const Navbar = () => {
     const { navigateToLogin, click, handleClick, products } = useNavbar()
     const { categories } = useCategory()
-    const { authenticated, loading, isAdmin } = useAuthentication()
+    const { authenticated, loading, isAdmin, signOff } = useAuthentication()
     const { onMouseEnterAdmin, onMouseLeaveAdmin, onMouseEnterCategory, onMouseLeaveCategory, dropdownAdmin, dropdownCategory } = useMobile()
 
     // Verificar si products existe antes de acceder a su propiedad length
@@ -69,7 +69,7 @@ const Navbar = () => {
                             <NavbarUserItems
                                 isAdmin={isAdmin}
                                 authenticated={authenticated}
-                                // signOff={signOff}  esto es de useAuthentication
+                                signOff={signOff} 
                                 productCount={productCount}
                                 handleClick={handleClick}
                                 onMouseLeaveAdmin={onMouseLeaveAdmin}

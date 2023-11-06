@@ -1,20 +1,20 @@
-import { useContext, useEffect } from "react";
+import UseUserContext from "@/context/hook/UseUserContext";
+import {useEffect } from "react";
 
 const useAuthentication = () => {
 
-    const authenticated = true
-    const loading = false
+    const {authenticated, authenticatedUser, loading, signOff} = UseUserContext()
     const isAdmin = true
 
     useEffect(() => {
-        // authenticatedUser();
+        authenticatedUser();
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return {
         authenticated,
-        // signOff,
+        signOff,
         loading,
         isAdmin
     };

@@ -1,18 +1,20 @@
 "use client"
 
 import UseUserContext from "@/context/hook/UseUserContext";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const UseLogin = () => {
-
-    const {login, authenticated, msg} = UseUserContext()
+    const router = useRouter()
+    const { login, authenticated, msg } = UseUserContext()
     const [user, setUser] = useState({
         email: "",
         password: "",
     });
 
     const { email, password } = user
+    
     const inputChange = (e) => {
         setUser({
             ...user,
@@ -25,12 +27,11 @@ const UseLogin = () => {
     };
     useEffect(() => {
         if (authenticated) {
-          
-        //   navigate("/");
+            router.push("/")
         }
-    
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [authenticated])
+    }, [authenticated])
     return {
         inputChange, onSubmit,
     }
