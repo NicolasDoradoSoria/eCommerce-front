@@ -56,10 +56,10 @@ const UserState = (props) => {
 
   // devuelve el usuario autentificado
   const authenticatedUser = async () => {
-    // const token = localStorage.getItem("token");
-    // if (token) {
-    //   token(token);
-    // }
+    const getToken = localStorage.getItem("token");
+     if (getToken) {
+       token(getToken);
+     }
     try {
       // const respuesta = await clienteAxios.get("/api/users");
       dispatch({
