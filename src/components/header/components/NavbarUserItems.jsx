@@ -20,10 +20,10 @@ const NavbarUserItems = ({
                 <Link href='/' className='navbar_link' onClick={handleClick}>Perfil</Link>
             </div>
             <div className='navbar_item'>
-                <Link href='/carrito' className='navbar_link' onClick={handleClick}>Carrito</Link>
+                <Link href='/cart' className='navbar_link' onClick={handleClick}>Carrito</Link>
             </div>
             <div className='navbar_item'>
-                <Link href='/favoritos' className='navbar_link' onClick={handleClick}>Favoritos</Link>
+                <Link href='/favorites' className='navbar_link' onClick={handleClick}>Favoritos</Link>
             </div>
             {isAdmin && (
                 <div className='navbar_item icon' onMouseEnter={onMouseEnterAdmin} onMouseLeave={onMouseLeaveAdmin}>
