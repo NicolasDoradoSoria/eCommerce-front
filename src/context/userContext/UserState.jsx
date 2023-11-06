@@ -80,7 +80,6 @@ const UserState = (props) => {
   const login = async (data) => {
     try {
       const response = await loginService(data)
-      console.log(response)
       dispatch({
         type: LOGIN_SUCCESSFUL,
         payload: response.data

@@ -1,17 +1,10 @@
+import AxiosClient from "@/config/Axios";
+
 export const loginService = async (data) => {
-    const { email, password } = data
-    if (email === "nicoycar1990user@hotmail.com" && password === "123456")
-        return data
-    else {
-        return ""
-    }
+    const response = await AxiosClient.post("/api/auth/login", data);
+    return response
 }
 
 export const sigUpService = async (data) => {
-    const { email, password } = data
-    if (email === "nicoycar1990user@hotmail.com" && password === "123456")
-        return data
-    else {
-        return ""
-    }
+    return await AxiosClient.post("/api/auth/register", data);
 }
