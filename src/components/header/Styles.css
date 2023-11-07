@@ -83,7 +83,7 @@
     top: 80px;
     background: rgb(205, 166, 194);
     padding-bottom: 20px;
-    z-index: 1;
+    z-index: 100;
 }
 
 .dropdown_link {
@@ -111,7 +111,7 @@
     .navbar_container.active {
         background: #242222;
         left: 0;
-        z-index: 1;
+        z-index: 100;
         position: absolute;
         display: flex;
         flex-direction: column;
