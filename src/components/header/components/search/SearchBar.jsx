@@ -27,14 +27,16 @@ function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColo
           width: search ? "fit-content" : iconWidth,
           borderRadius: "15px",
           borderColor: color,
+          justifyContent: "start"
         }}
-        className="flex flex-row justify-start border overflow-hidden">
+        className="flex flex-row border overflow-hidden">
             
-            <motion.div layout style={{transition: "position"}} onClick={handleSearchClick}>
+            <motion.label layout htmlFor='search' onClick={handleSearchClick}>
                 <SearchIcon width={iconWidth} color={color}></SearchIcon>
-            </motion.div>
+            </motion.label>
             
             <motion.input layout placeholder='Search' 
+            id='search'
             onChange={(e)=>handleInput(e)}
             name='search'
             onKeyDown={(e)=>handleKeyDown(e)}
