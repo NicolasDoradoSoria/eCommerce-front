@@ -1,8 +1,11 @@
 import UseUserContext from "@/context/hook/UseUserContext";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const UseSignUp = () => {
+    const router = useRouter()
+
     const { registerUser,msg, authenticated } = UseUserContext()
     const [user, setUser] = useState({
         email: "",
@@ -25,7 +28,7 @@ const UseSignUp = () => {
     useEffect(() => {
         if (authenticated) {
 
-            navigate("/")
+            router.push("/")
         }
 
         if (msg) {

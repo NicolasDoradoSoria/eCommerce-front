@@ -14,7 +14,7 @@ export default (state, action) => {
     case LOGIN_SUCCESSFUL:
     case REGISTER_SUCCESS:
       const alert = {
-        // msg: action.payload.msg,
+        msg: action.payload.msg,
         category: "success",
       }
        localStorage.setItem("token", action.payload.token);

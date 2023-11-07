@@ -69,7 +69,7 @@ const Navbar = () => {
                             <NavbarUserItems
                                 isAdmin={isAdmin}
                                 authenticated={authenticated}
-                                signOff={signOff} 
+                                signOff={signOff}
                                 productCount={productCount}
                                 handleClick={handleClick}
                                 onMouseLeaveAdmin={onMouseLeaveAdmin}
@@ -79,10 +79,11 @@ const Navbar = () => {
                                 adminPath={adminPath}
                             />
                             :
-                            <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link"/>
+                            <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link" />
                         }
-
-                        <SearchBar></SearchBar>
+                        <div className='navbar_item'>
+                            <SearchBar />
+                        </div>
                     </div>
                 </> :
                 <header className='header'><Skeleton className="w-full h-3" /></header>
