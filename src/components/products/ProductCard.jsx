@@ -16,7 +16,7 @@ function ProductCard({item}) {
           <HeartIcon filled={favorite} />
       </Button>  
       <Card shadow="sm" className='w-full min-w-[180px]' isPressable isHoverable={true}>
-        <Link href={`/${item.id}`}>
+        <Link href={`products/${item.id}`}>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
