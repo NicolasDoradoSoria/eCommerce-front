@@ -5,7 +5,7 @@ import FilterOptions from "./components/FilterOptions"
 export default function Home({params}) {
   return (
    <>
-   <div className="m-1 grid grid-cols-6">
+   <div className="m-1 md:grid grid-cols-6">
     <div className="col-span-1 w-full">
         <FilterOptions searchKey={params.searchKey}></FilterOptions>
     </div>
