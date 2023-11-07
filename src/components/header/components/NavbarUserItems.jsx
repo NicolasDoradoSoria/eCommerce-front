@@ -2,6 +2,8 @@ import '../Styles.css';
 import { Badge, Button } from "@nextui-org/react";
 import Link from "next/link";
 import Dropdown from './Dropdown';
+import { CartIcon } from './CartIcon';
+import ArrowDownIcon from './ArrowDownIcon';
 
 const NavbarUserItems = ({
     isAdmin,
@@ -29,7 +31,7 @@ const NavbarUserItems = ({
                 <div className='navbar_item icon' onMouseEnter={onMouseEnterAdmin} onMouseLeave={onMouseLeaveAdmin}>
                     <Link href='/' className='navbar_link' onClick={handleClick}>Administrador</Link>
                     <div className='navbar_icon'>
-                        {/* <ArrowDropDownIcon /> */}
+                        <ArrowDownIcon />
                     </div>
                     {dropdownAdmin &&
                         <ul className={click ? 'navbar_dropdown.dropdown_clicked' : "navbar_dropdown"}>
@@ -44,9 +46,9 @@ const NavbarUserItems = ({
                 </div>
             </div>
             <div className='navbar_item'>
-                <Badge content={authenticated ? productCount : null} color="error" className='shopping'>
+                <Badge content={authenticated ? productCount : null} color="danger" shape="circle" className='shopping'>
                     <div className="navbar_badge_icon">
-                        {/* <ShoppingCartIcon /> */}
+                        <CartIcon size={30} />
                     </div>
                 </Badge>
             </div>
