@@ -49,7 +49,7 @@ const Navbar = () => {
     return (
         <header className='header'>
             {!loading ?
-                <>
+                <div className='flex items-center h-full'>
                     {/* si no esta despleglado en modo mobile muestra MenuIcon si esta desplegablo muesta el CloseIcon esto solo sirve para modo mobile */}
                     <NavbarMenuMobile click={click} handleClick={handleClick} />
 
@@ -81,11 +81,11 @@ const Navbar = () => {
                             :
                             <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link" />
                         }
-                        <div className='navbar_item'>
-                            <SearchBar />
-                        </div>
                     </div>
-                </> :
+                    <div className='navbar_item search_mobile'>
+                        <SearchBar />
+                    </div>
+                </div> :
                 <header className='header'><Skeleton className="w-full h-3" /></header>
 
             }
