@@ -86,8 +86,16 @@ const Navbar = () => {
                         <SearchBar />
                     </div>
                 </div> :
-                <header className='header'><Skeleton className="w-full h-3" /></header>
-
+                <div className='flex items-center h-full gap-5 ml-[2rem]'>
+                    <Skeleton  className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[130px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[130px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[50px] h-12 rounded-lg" />
+                </div>
             }
         </header>
     );
