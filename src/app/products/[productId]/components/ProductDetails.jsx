@@ -71,7 +71,7 @@ function ProductDetails({id}) {
                             <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
                             <hr/>
                             <div className='flex flex-row gap-2 my-3'>
-                                <Button color="primary" className='text-lg w-full rounded-sm p-1 text-center'>Add to cart</Button>
+                                <Button color="primary" variant='solid' className='text-lg w-full rounded-sm p-1 text-center hover:brightness-110'>Add to cart</Button>
                                 <Button color='secondary' isIconOnly aria-label="Favorite" className='p-2 rounded-sm' onPress={handleFavorite}>
                                     <HeartIcon filled={favorite} />
                                 </Button>    
@@ -81,7 +81,7 @@ function ProductDetails({id}) {
                                 {product.imgs.map((src, index) => {
                                     return (
                                     <Image src={src} alt={product.title} key={index}
-                                    className={`object-cover w-[80px] h-[80px] rounded-none `+(active==index ? " outline" : "")}
+                                    className={`object-cover w-[80px] h-[80px] rounded-none `+(active==index ? " outline" : " grayscale-50")}
                                     onMouseEnter={()=>handleActive(index)} onClick={()=> handleActive(index)}></Image>
                                     )
                                 })
