@@ -92,12 +92,10 @@ const UserState = (props) => {
         dispatch({
           type: DELETE_MSG,
         })
+        authenticatedUser();
       }, 5000)
 
-      setTimeout(() => {
 
-        authenticatedUser();
-      }, 50)
 
     } catch (error) {
       console.log(error.response.data.msg)

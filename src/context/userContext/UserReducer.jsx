@@ -20,7 +20,6 @@ export default (state, action) => {
        localStorage.setItem("token", action.payload.token);
       return {
         ...state,
-        authenticated: true,
         msg: alert,
       };
     case REGISTER_ERROR:
@@ -35,6 +34,7 @@ export default (state, action) => {
     case DELETE_MSG:
       return {
         ...state,
+        authenticated: true,
         msg: null,
       }
     case GET_USER:

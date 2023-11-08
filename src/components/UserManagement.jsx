@@ -6,8 +6,9 @@ import EmailInput from './EmailInput';
 import ConfirmInput from './ConfirmInput';
 import PasswordInput from './PasswordInput';
 import UserLink from './UserLink';
+import Alert from './alert/Alert';
 
-const UserManagement = ({ children, title, onSubmit}) => {
+const UserManagement = ({ children, title, onSubmit }) => {
 
     const renderChildren = Children.map(children, (child) => {
         if (child.type === EmailInput) {
@@ -42,6 +43,8 @@ const UserManagement = ({ children, title, onSubmit}) => {
                     </form>
                 </div>
             </div>
+            <Alert />
+
         </div>
     );
 }

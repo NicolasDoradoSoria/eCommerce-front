@@ -4,7 +4,7 @@ import UserContext from "../userContext/UserContext";
 const UseUserContext = () => {
     //userContext
     const userContext = useContext(UserContext);
-    const { loading, user, authenticated, login, registerUser, authenticatedUser, signOff } = userContext;
+    const { loading, user, authenticated, login, registerUser, authenticatedUser, signOff, msg, category } = userContext;
 
     return {
         authenticatedUser,
@@ -13,7 +13,9 @@ const UseUserContext = () => {
         loading,
         user,
         authenticated,
-        signOff
+        signOff,
+        msg,
+        category
     }
 }
 
