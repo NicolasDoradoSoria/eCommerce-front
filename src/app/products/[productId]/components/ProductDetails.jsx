@@ -77,7 +77,7 @@ function ProductDetails({id}) {
                                 </Button>    
                             </div>
                             <div className='p-5 text-sm'>{product.description}</div>
-                            <div className='pc-other-images flex flex-row gap-1'>
+                            <div className=' flex flex-row gap-1 flex-wrap'>
                                 {product.imgs.map((src, index) => {
                                     return (
                                     <Image src={src} alt={product.title} key={index}
