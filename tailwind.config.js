@@ -18,9 +18,17 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      grayscale: {
+        50: '50%',
+      }
     },
     colors: {
-      searchColor: "#1d95f2"
+      searchColor: "#b1d6c5",
+      header:{ 
+        start:"#0d6082",
+        end: "#1c9aa5",
+        hover:'#050026'
+      }
     }
   },
   darkMode: "class",
@@ -29,7 +37,7 @@ module.exports = {
       dark: {
         colors: {
           primary: {
-            DEFAULT: "#1bd34c",
+            DEFAULT: "#126b41",
             foreground: "#fff"
           },
           secondary: {
