@@ -20,7 +20,12 @@ module.exports = {
       },
     },
     colors: {
-      searchColor: "#1d95f2"
+      searchColor: "#b1d6c5",
+      header:{ 
+        start:"#0d6082",
+        end: "#1c9aa5",
+        hover:'#050026'
+      }
     }
   },
   darkMode: "class",
@@ -29,7 +34,7 @@ module.exports = {
       dark: {
         colors: {
           primary: {
-            DEFAULT: "#1bd34c",
+            DEFAULT: "#126b41",
             foreground: "#fff"
           },
           secondary: {
