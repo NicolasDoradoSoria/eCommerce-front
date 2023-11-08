@@ -60,6 +60,9 @@ const UserState = (props) => {
      if (getToken) {
        token(getToken);
      }
+     else {
+      return null
+     }
     try {
       // const respuesta = await clienteAxios.get("/api/users");
       dispatch({

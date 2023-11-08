@@ -3,7 +3,7 @@ import '../app/login/styles/login.css';
 
 const UserLink = () => {
     return ( <div className='link-Container'>
-    <Link href={"/nueva-cuenta"} className="link">
+    <Link href={"/signUp"} className="link">
         <p>No tienes cuenta? Registrate</p>
     </Link>
 </div> );

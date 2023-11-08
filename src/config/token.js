@@ -1,8 +1,10 @@
+import AxiosClient from "./Axios"
+
 const Token = token => {
     if(token){
-        // clienteAxios.defaults.headers.common['x-auth-token'] = token
+        AxiosClient.defaults.headers.common['x-auth-token'] = token
     }else{
-        // delete clienteAxios.defaults.headers.common['x-auth-token']
+        delete AxiosClient.defaults.headers.common['x-auth-token']
     }
 }
 

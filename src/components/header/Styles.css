@@ -95,7 +95,7 @@
     .menu-icon {
         display: block;
         color: #ffff;
-        top: 0;
+        top: -5px;
         right: 0;
         cursor: pointer;
         position: absolute;
@@ -141,5 +141,8 @@
 
     .navbar_item .shopping {
         display: none;
+    }
+    .search_mobile {
+        margin: auto;
     }
 }

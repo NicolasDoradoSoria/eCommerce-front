@@ -49,7 +49,7 @@ const Navbar = () => {
     return (
         <header className='header'>
             {!loading ?
-                <>
+                <div className='flex items-center h-full'>
                     {/* si no esta despleglado en modo mobile muestra MenuIcon si esta desplegablo muesta el CloseIcon esto solo sirve para modo mobile */}
                     <NavbarMenuMobile click={click} handleClick={handleClick} />
 
@@ -69,7 +69,7 @@ const Navbar = () => {
                             <NavbarUserItems
                                 isAdmin={isAdmin}
                                 authenticated={authenticated}
-                                signOff={signOff} 
+                                signOff={signOff}
                                 productCount={productCount}
                                 handleClick={handleClick}
                                 onMouseLeaveAdmin={onMouseLeaveAdmin}
@@ -79,14 +79,23 @@ const Navbar = () => {
                                 adminPath={adminPath}
                             />
                             :
-                            <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link"/>
+                            <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link" />
                         }
-
-                        <SearchBar></SearchBar>
                     </div>
-                </> :
-                <header className='header'><Skeleton className="w-full h-3" /></header>
-
+                    <div className='navbar_item search_mobile'>
+                        <SearchBar />
+                    </div>
+                </div> :
+                <div className='flex items-center h-full gap-5 ml-[2rem]'>
+                    <Skeleton  className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[130px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[130px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[50px] h-12 rounded-lg" />
+                </div>
             }
         </header>
     );
