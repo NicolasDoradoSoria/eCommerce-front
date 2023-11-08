@@ -1,0 +1,34 @@
+
+.controlOverlay {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    top: 40%;
+}
+
+.overlayButton {
+    background-color: rgba(0, 0, 0);
+    color: white;
+    z-index: 50;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    opacity: 80%;
+    border-radius: 40%;
+}
+
+.overlayButton:hover {
+    opacity: 100%;
+}
+
+@media screen and (max-width: 960px) {
+    .overlayButton {
+        display: none;
+    }
+}

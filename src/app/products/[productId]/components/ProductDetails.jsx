@@ -6,7 +6,7 @@ import useSWR from 'swr';
 import useToggle from '@/hooks/useToggle';
 import { exampleProduct } from '@/components/products/dataTemporary';
 import { useZoom } from '../hooks/useZoom';
-import { useCarousel } from '../hooks/useCarousel';
+import { useActive } from '../hooks/useActive';
 import { Skeleton } from '@nextui-org/react';
 import "../styles.css"
 import ErrorCard from '@/components/products/ErrorCard';
@@ -19,8 +19,8 @@ function ProductDetails({id}) {
     //favorite
     const {handleValue: handleFavorite, value: favorite} = useToggle(false);
 
-    //carousel
-    const {active, handleActive} = useCarousel();
+    //Active
+    const {active, handleActive} = useActive();
 
     //zoom
     const {handleOrigin, handleQuitZoom, handleZoom, origin, zoom} = useZoom();
