@@ -94,15 +94,15 @@
     .avatar-icon{
         display: block;
         position: absolute;
-        top: 30px;
-        margin-left: 20px;
+        top: 22px;
+        margin-left: 10px;
         cursor: pointer;
     }
     .menu-icon {
         display: block;
         color: #ffff;
         top: -5px;
-        right: 0;
+        right: -23px;
         cursor: pointer;
         position: absolute;
         font-size: 1.8rem;

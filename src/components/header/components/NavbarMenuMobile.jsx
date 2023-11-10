@@ -6,7 +6,7 @@ import CloseIcon from './closeIcon';
 const NavbarMenuMobile = ({ click, handleClick }) => {
     return (
         <div className="menu-icon" onClick={handleClick}>
-            {click ? <CloseIcon size={50} /> : <MenuIcon size={50}/>}
+            {click ? <CloseIcon size={40} /> : <MenuIcon size={40}/>}
         </div>
     );
 }

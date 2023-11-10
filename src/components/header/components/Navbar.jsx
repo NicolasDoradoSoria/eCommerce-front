@@ -86,7 +86,7 @@ const Navbar = () => {
                     </div>
                     <div className='avatar-icon '>
                         <Link href='/login'>
-                            <AvatarIcon size={60} />
+                            <AvatarIcon size={50} />
                         </Link>
                     </div>
                     <div className='navbar_item search_mobile'>
