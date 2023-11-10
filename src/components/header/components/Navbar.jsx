@@ -13,6 +13,7 @@ import NavbarUserItems from './NavbarUserItems';
 import useAuthentication from '../hooks/useAuthentication';
 import SearchBar from "./search/SearchBar"
 import NavbarGuestItems from "./NavbarGuestItems"
+import AvatarIcon from './AvatarIcon';
 
 const adminPath = [
     {
@@ -53,6 +54,7 @@ const Navbar = () => {
                     {/* si no esta despleglado en modo mobile muestra MenuIcon si esta desplegablo muesta el CloseIcon esto solo sirve para modo mobile */}
                     <NavbarMenuMobile click={click} handleClick={handleClick} />
 
+                    
                     <div className={click ? "navbar_container active" : "navbar_container"} >
                         <div className='navbar_item'>
                             <Link href='/' className='navbar_link' onClick={handleClick}>Inicio</Link>
@@ -82,12 +84,18 @@ const Navbar = () => {
                             <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link" />
                         }
                     </div>
+                    <div className='avatar-icon '>
+                        <Link href='/login'>
+                            <AvatarIcon size={60} />
+                        </Link>
+                    </div>
                     <div className='navbar_item search_mobile'>
                         <SearchBar />
                     </div>
+
                 </div> :
                 <div className='flex items-center h-full gap-5 ml-[2rem]'>
-                    <Skeleton  className="flex w-[100px] h-12 rounded-lg" />
+                    <Skeleton className="flex w-[100px] h-12 rounded-lg" />
                     <Skeleton className="flex w-[130px] h-12 rounded-lg" />
                     <Skeleton className="flex w-[100px] h-12 rounded-lg" />
                     <Skeleton className="flex w-[100px] h-12 rounded-lg" />

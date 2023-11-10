@@ -60,7 +60,7 @@
     color: #ffff;
 }
 
-.menu-icon {
+.menu-icon, .avatar-icon {
     display: none;
 }
 
@@ -90,8 +90,14 @@
     text-decoration: none;
     color: #26375c;
 }
-
 @media screen and (max-width:960px) {
+    .avatar-icon{
+        display: block;
+        position: absolute;
+        top: 30px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
     .menu-icon {
         display: block;
         color: #ffff;
