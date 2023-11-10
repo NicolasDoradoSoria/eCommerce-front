@@ -1,8 +1,8 @@
 import './Alert.css'
 import SnackBarContext from '../../context/snackbarContext/SnackbarContext';
 import RepusableAlert from './reusableAlert';
-import UseSnackbarContext from '@/context/hook/UseSnackbarCOntext';
 import { Modal, ModalBody, ModalContent } from '@nextui-org/react';
+import UseSnackbarContext from '@/context/hook/UseSnackbarContext';
 
 /* 
 ********************************
