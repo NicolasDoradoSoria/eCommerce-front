@@ -1,9 +1,9 @@
 import useToggle from "@/hooks/useToggle";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export function useSearch() {
-  const {handleValue: handleSearchToggle, value: search} = useToggle(false);
+  const {handleValue: handleSearchToggle, setValue: setSearch, value: search} = useToggle(false);
 
   //controlar el search
   const [input, setInput] = useState("")
@@ -36,5 +36,22 @@ export function useSearch() {
     router.push(`/search/${input}`)
   }
 
-  return {handleInput, handleKeyDown, handleSearchClick, search, input}
+  //make mobile responsive
+  const isMobileSize = () => window.innerWidth < 960
+
+  const handleResize = () => {
+    if (isMobileSize()) {
+      setSearch(true)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
+  
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
+  return {handleInput, handleKeyDown, handleSearchClick, search, isMobileSize, input}
 }

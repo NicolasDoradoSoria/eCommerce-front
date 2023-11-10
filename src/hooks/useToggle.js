@@ -5,5 +5,5 @@ export default function useToggle (initialValue = false) {
 
   const handleValue = () => setValue(!value);
 
-  return {handleValue, value}
+  return {handleValue, setValue, value}
 }

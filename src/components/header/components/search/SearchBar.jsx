@@ -14,8 +14,7 @@ const fullConfig = resolveConfig(tailwindConfig)
 
 function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColor}) {
 
-  const {handleInput, handleKeyDown, handleSearchClick, search, input} = useSearch()
-
+  const {handleInput, handleKeyDown, handleSearchClick, isMobileSize, search, input} = useSearch()  
 
   return (
     <>
@@ -24,7 +23,7 @@ function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColo
         <motion.div
         layout
         style={{ 
-          width: search ? "fit-content" : iconWidth,
+          width: search || isMobileSize() ? "fit-content" : iconWidth,
           borderRadius: "15px",
           borderColor: color,
           justifyContent: "start"
