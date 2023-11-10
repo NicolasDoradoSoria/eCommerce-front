@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { base_url, get_products } from './urls';
+import { base_url, get_products, get_products_params } from './urls';
 
 export const instance = axios.create({
     baseURL: base_url,
@@ -25,15 +25,26 @@ export async function getProductDetails(id) {
 
 export async function getProductSimilar(id) {
     //for now...    
-    return await getProductsList()
-}
-
-export async function getProductsList() {
     const res = await instance.get(get_products)
 
     if (await res.status != 200){
         throw Error(res)
     }
 
-    return await res.data.products
+    return await res.data
+}
+
+export async function getProductsList(page) {
+    const res = await instance.get(get_products, {
+        params:{
+            [get_products_params.limit]: 1,
+            [get_products_params.page]: page
+        }
+    })
+
+    if (await res.status != 200){
+        throw Error(res)
+    }
+
+    return await res.data
 }

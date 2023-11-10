@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ProductCard from './ProductCard';
 import { fruits } from './dataTemporary';
 import useSWR from 'swr';
 import { getProductsList } from '@/api/endpoints';
 import SkeletonCard from './SkeletonCard';
 import ErrorCard from './ErrorCard';
+import { Pagination } from '@nextui-org/react';
 
 // the list should come from a call to a server
 // skeleton on loading
@@ -12,10 +13,11 @@ import ErrorCard from './ErrorCard';
 
 function Products({searchKey=""}) {
 
+  const [currentPage, setCurrentPage] = useState(1)
+
   //temporary solution to not having DB - use searchKey to fetch
 
-  const {data: list, isLoading, error} = useSWR("ProductList", getProductsList)
-
+  const {data, isLoading, error} = useSWR("ProductList"+currentPage, (k)=> getProductsList(currentPage))
 
   var content;
 
@@ -30,15 +32,24 @@ function Products({searchKey=""}) {
   } else if (error) {
     return <ErrorCard></ErrorCard>
   } else {
-      content = list.map((item) => (
+      content = data.products.map((item) => (
         <ProductCard item={item} key={item.id}></ProductCard>
       ))
   }
 
   return (
+    <>
     <div className="productGrid lg:mx-20 m-10">
       {content}
     </div>
+    <div className='w-full flex flex-row justify-center'>
+    {!isLoading && !error ? (
+      <Pagination total={data.TOTAL_PAGES} page={currentPage} onChange={setCurrentPage}/>
+      ) : 
+      ""
+    }
+    </div>
+    </>
   )
 }
 

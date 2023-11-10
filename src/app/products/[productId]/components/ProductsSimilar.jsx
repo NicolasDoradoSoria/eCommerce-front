@@ -11,7 +11,7 @@ import ErrorCard from '@/components/products/ErrorCard';
 function ProductsSimilar({id}) {
 
   // the fetcher function is called with the key (`ProductsSimilarID`) as a parameter
-  const {data: list, isLoading, error} = useSWR(`ProductSimilar${id}`, async (key) => await getProductSimilar(id));
+  const {data, isLoading, error} = useSWR(`ProductSimilar${id}`, async (key) => await getProductSimilar(id));
 
   const loadingList = [1,1,1,1,1,1,1]
 
@@ -28,7 +28,7 @@ function ProductsSimilar({id}) {
                       loadingList.map((e, i)=><SkeletonCard key={i}/>)
                     )
                     :
-                    list.map((item) => (
+                    data.products.map((item) => (
                         <ProductCard item={item} key={item.id}></ProductCard>
                     ))}
                 </div>
