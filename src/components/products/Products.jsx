@@ -2,7 +2,7 @@ import React from 'react'
 import ProductCard from './ProductCard';
 import { fruits } from './dataTemporary';
 import useSWR from 'swr';
-import { getProductList } from '@/api/endpoints';
+import { getProductsList } from '@/api/endpoints';
 import SkeletonCard from './SkeletonCard';
 import ErrorCard from './ErrorCard';
 
@@ -13,11 +13,8 @@ import ErrorCard from './ErrorCard';
 function Products({searchKey=""}) {
 
   //temporary solution to not having DB - use searchKey to fetch
-  const list = fruits;
 
-  //const {data, isLoading, error} = useSWR("ProductList", getProductsList)
-  const isLoading = false
-  const error = false
+  const {data: list, isLoading, error} = useSWR("ProductList", getProductsList)
 
 
   var content;

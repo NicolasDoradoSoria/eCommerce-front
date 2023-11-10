@@ -1,12 +1,12 @@
 import axios from 'axios'
 
+import { base_url, get_products } from './urls';
+
 export const instance = axios.create({
-    baseURL: 'https://some-domain.com/api/',
+    baseURL: base_url,
     timeout: 1000,
     headers: {
-        'X-Custom-Header': 'foobar',
         accept: 'application/json',
-        Authorization: `Token`,
     }
   });
 
@@ -24,16 +24,16 @@ export async function getProductDetails(id) {
 }
 
 export async function getProductSimilar(id) {
-    const url = "whateverTheUrlIs"  
-    const res = await instance.get(url)
-
-    if (await res.status != 200){
-        throw Error(res);
-    }
-    
-    return await res.data
+    //for now...    
+    return await getProductsList()
 }
 
 export async function getProductsList() {
-    
+    const res = await instance.get(get_products)
+
+    if (await res.status != 200){
+        throw Error(res)
+    }
+
+    return await res.data.products
 }

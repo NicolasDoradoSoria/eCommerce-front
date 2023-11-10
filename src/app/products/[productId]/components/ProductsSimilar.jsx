@@ -11,13 +11,9 @@ import ErrorCard from '@/components/products/ErrorCard';
 function ProductsSimilar({id}) {
 
   // the fetcher function is called with the key (`ProductsSimilarID`) as a parameter
-  //const {data, isLoading, error} = useSWR(`ProductSimilar${id}`, async (key) => await getProductSimilar(id));
-  const isLoading = false;
-  const error = false;
+  const {data: list, isLoading, error} = useSWR(`ProductSimilar${id}`, async (key) => await getProductSimilar(id));
 
-    //esto sería alguna llamda. según el id del path?
-    const list = fruits;
-    const loadingList = [1,1,1,1,1,1,1]
+  const loadingList = [1,1,1,1,1,1,1]
 
     if (error) {
       return (<ErrorCard/>)

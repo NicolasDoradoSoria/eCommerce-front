@@ -16,19 +16,19 @@ function ProductCard({item}) {
           <HeartIcon filled={favorite} />
       </Button>  
       <Card shadow="sm" className='w-full min-w-[180px]' isPressable isHoverable={true}>
-        <Link href={`products/${item.id}`}>
+        <Link href={`/products/${item._id}`}>
           <CardBody className="overflow-visible p-0">
             <Image
               shadow="sm"
               width="100%"
-              alt={item.title}
+              alt={item.name}
               className="w-full object-cover h-[250px]"
-              src={item.img}
+              src={item.images[0]}
             />
           </CardBody>
           <CardFooter className="text-small flex justify-between">
-            <b>{item.title}</b>
-            <p className="text-default-500">{item.price}</p>
+            <b>{item.name}</b>
+            <p className="text-default-500 price">{item.price}</p>
           </CardFooter>
         </Link>
       </Card>
