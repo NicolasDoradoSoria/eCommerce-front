@@ -14,7 +14,7 @@ const RepusableAlert = ({ id = "success-box", msg = "éxito!", face = "face", mo
                 <div className={mouth}></div>
             </div>
             <div className={shadow}></div>
-            <div className="message"><h1 className="alert alert-h1">{severity}</h1><p>{msg}</p></div>
+            <div className="message"><h1 className="alert alert-h1">{severity}</h1><p className="msg">{msg}</p></div>
             <button className="button-box"><h1 className="green alert-h1" onClick={navegationCLick}>{button}</h1></button>
         </div>
     );
