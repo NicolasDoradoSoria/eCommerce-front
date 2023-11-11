@@ -37,7 +37,7 @@ export function useSearch() {
   }
 
   //make mobile responsive
-  const isMobileSize = () => window.innerWidth < 960
+  const isMobileSize = () => typeof window !== 'undefined' && window.innerWidth < 960
 
   const handleResize = () => {
     if (isMobileSize()) {
