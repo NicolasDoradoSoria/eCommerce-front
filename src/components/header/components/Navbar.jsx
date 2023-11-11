@@ -48,7 +48,7 @@ const Navbar = () => {
     const productCount = products ? products.length : 0;
 
     return (
-        <header className='header'>
+        <header className='header max-w-screen'>
             {!loading ?
                 <div className='flex items-center h-full'>
                     {/* si no esta despleglado en modo mobile muestra MenuIcon si esta desplegablo muesta el CloseIcon esto solo sirve para modo mobile */}
@@ -84,12 +84,12 @@ const Navbar = () => {
                             <NavbarGuestItems navigateToLogin={navigateToLogin} className="navbar_link" />
                         }
                     </div>
-                    <div className='avatar-icon '>
+                    <div className='avatar-icon shrink-0'>
                         <Link href='/login'>
                             <AvatarIcon size={50} />
                         </Link>
                     </div>
-                    <div className='navbar_item search_mobile'>
+                    <div className='navbar_item search_mobile shrink max-w-full min-w-[100px]'>
                         <SearchBar />
                     </div>
 

@@ -18,19 +18,19 @@ function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColo
 
   return (
     <>
-    <div className='flex flex-row justify-start w-fit'>
+    <div className='flex flex-row justify-start max-w-full shrink min-w-[100px]'>
       <LayoutGroup>
         <motion.div
         layout
         style={{ 
-          width: search || isMobileSize() ? "fit-content" : iconWidth,
+          maxWidth: search || isMobileSize() ? "fit-content" : iconWidth,
           borderRadius: "15px",
           borderColor: color,
           justifyContent: "start"
         }}
-        className="flex flex-row border overflow-hidden">
+        className="flex flex-row border overflow-hidden shrink">
             
-            <motion.label layout htmlFor='search' onClick={handleSearchClick}>
+            <motion.label layout htmlFor='search' className='shrink-0' onClick={handleSearchClick}>
                 <SearchIcon width={iconWidth} color={color}></SearchIcon>
             </motion.label>
             
@@ -47,6 +47,7 @@ function SearchBar({iconWidth = "40px", color=fullConfig.theme.colors.searchColo
             duration-100
             object-cover
             p-1
+            shrink
             '/>
           
         </motion.div>

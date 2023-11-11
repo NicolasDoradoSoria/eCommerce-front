@@ -14,7 +14,7 @@
     align-items: center;
     height: 100%;
     margin-left: 2rem;
-
+    max-width: 100vw;
 }
 
 .navbar_item {
@@ -26,7 +26,7 @@
     color: #ffff;
     margin-top: 5px;
     margin-left: 5px;
-
+    flex-shrink: 0;
 }
 
 .icon {
@@ -93,20 +93,24 @@
 @media screen and (max-width:960px) {
     .avatar-icon{
         display: block;
-        position: absolute;
-        top: 22px;
+        /*position: absolute;
+        top: 22px;*/
         margin-left: 10px;
         cursor: pointer;
+        flex-shrink: 0;
     }
     .menu-icon {
         display: block;
         color: #ffff;
-        top: -5px;
-        right: -23px;
         cursor: pointer;
+        /*top: -5px;
+        right: -23px;
         position: absolute;
+        transform: translate(-100%, 60%);*/
+        flex-shrink: 0;
+        padding: 3px;
+        order: 10;
         font-size: 1.8rem;
-        transform: translate(-100%, 60%);
 
     }
 
