@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import ProductCard from './ProductCard';
-import { fruits } from './dataTemporary';
 import useSWR from 'swr';
-import { getProductsList } from '@/api/endpoints';
+import { getProductsList } from '@/service/Products.service';
 import SkeletonCard from './SkeletonCard';
 import ErrorCard from './ErrorCard';
 import { Pagination } from '@nextui-org/react';

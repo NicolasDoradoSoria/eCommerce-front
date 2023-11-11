@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Image, Button } from '@nextui-org/react'
 import {HeartIcon} from '@/components/products/HeartIcon';
-import { getProductDetails } from '@/api/endpoints';
+import { getProductDetails } from '@/service/Products.service';
 import useSWR from 'swr';
 import useToggle from '@/hooks/useToggle';
 import { exampleProduct } from '@/components/products/dataTemporary';
@@ -26,12 +26,7 @@ function ProductDetails({id}) {
     const {handleOrigin, handleQuitZoom, handleZoom, origin, zoom} = useZoom();
 
     //call to server
-    //const {data, isLoading, error} = useSWR(`ProductDetails${id}`, async (name) => await getProductDetails(id));
-    const isLoading = false
-    const error = false
-
-    //en realidad debería ser una llamada para tener los detalles segun el id, que llega por el path
-    const product = exampleProduct;
+    const {data: product, isLoading, error} = useSWR(`ProductDetails${id}`, async (name) => await getProductDetails(id));
 
     if (error) {
         return (<ErrorCard/>)
@@ -46,7 +41,7 @@ function ProductDetails({id}) {
                         <div className='bg-content4 w-[450px] h-[400px] rounded-lg m-10'></div>
                      )
                     : (
-                    <Image src={product.imgs[active]} alt={product.title} style={{transformOrigin: origin}} 
+                    <Image src={product.images[active]} alt={product.name} style={{transformOrigin: origin}} 
                     onMouseMove={(e) => handleOrigin(e)} onClick={handleZoom} onMouseLeave={handleQuitZoom}
                     className={'rounded-none object-contain w-full max-w-sm sm:max-w-full'+(zoom ? " zoom-in" : " zoom-normal")} ></Image>
                     )
@@ -66,7 +61,7 @@ function ProductDetails({id}) {
                      :
                      (
                         <div className='sticky top-0 p-5'>
-                            <h1 className='text-2xl sm:text-4xl text-start font-extralight p-1'>{product.title}</h1>
+                            <h1 className='text-2xl sm:text-4xl text-start font-extralight p-1'>{product.name}</h1>
                             <hr/>
                             <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
                             <hr/>
@@ -78,9 +73,9 @@ function ProductDetails({id}) {
                             </div>
                             <div className='p-5 text-sm'>{product.description}</div>
                             <div className=' flex flex-row gap-1 flex-wrap'>
-                                {product.imgs.map((src, index) => {
+                                {product.images.map((src, index) => {
                                     return (
-                                    <Image src={src} alt={product.title} key={index}
+                                    <Image src={src} alt={product.name} key={index}
                                     className={`object-cover w-[80px] h-[80px] rounded-none `+(active==index ? " outline" : " grayscale-50")}
                                     onMouseEnter={()=>handleActive(index)} onClick={()=> handleActive(index)}></Image>
                                     )
