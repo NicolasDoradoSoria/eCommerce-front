@@ -1,12 +1,13 @@
 import React from 'react'
-import { Image, Button } from '@nextui-org/react'
-import { useCarousel } from '@/components/carousel/useCarousel'
 import ArrowRightIcon from './ArrowRightIcon'
 import "./Carousel.css"
 import ArrowLeftIcon from './ArrowLeftIcon'
+import { CarouselContext } from './CarouselContext'
+import { useContext } from 'react'
 
-function Carousel({children, time, controls=true}) {
-      const {carousel, goNext, goPrev} = useCarousel(time)
+function Carousel({children, controls=true}) {
+  
+      const {carousel, goNext, goPrev} = useContext(CarouselContext)
     
       const iconSize = "40px"
     

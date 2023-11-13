@@ -1,6 +1,7 @@
 import React from 'react'
 import Carrousel from '../carousel/Carousel'
 import { Image } from '@nextui-org/react'
+import CarouselProvider from '../carousel/CarouselContext'
 
 function SalesCarousel() {
   const imgs = [
@@ -11,13 +12,15 @@ function SalesCarousel() {
 ]
 
   return (
-    <Carrousel time={3000}>
+    <CarouselProvider time={3000} length={imgs.length}>
+      <Carrousel>
       {imgs.map((img, i)=>{
       return (
         <Image key={i} alt='' src={img} classNames={{image: "object-cover", wrapper: "w-screen shrink-0 h-full snap-center"}}></Image>
       )}
       )}
     </Carrousel>
+    </CarouselProvider>
   )
 }
 
