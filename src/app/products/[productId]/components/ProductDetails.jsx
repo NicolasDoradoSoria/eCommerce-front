@@ -10,6 +10,7 @@ import { useActive } from '../hooks/useActive';
 import { Skeleton } from '@nextui-org/react';
 import "../styles.css"
 import ErrorCard from '@/components/products/ErrorCard';
+import Carousel from '@/components/carousel/Carousel';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel
@@ -32,7 +33,7 @@ function ProductDetails({id}) {
         return (<ErrorCard/>)
     } else {
         return (<>
-            <div className='flex flex-col sm:flex-row items-center content-stretch sm:items-stretch justify-start mx-5 md:mx-20 my-10 rounded-md
+            <div className='grid grid-cols-1 sm:grid-cols-3 items-center content-stretch sm:items-stretch justify-start mx-5 md:mx-20 my-10 rounded-md
              drop-shadow-xl bg-content2
              text-foreground sm:h-[600px]'>
                 <div className='shrink max-w-full max-h-full min-w-[50px] object-contain flex justify-center items-center overflow-hidden'>
@@ -41,15 +42,27 @@ function ProductDetails({id}) {
                         <div className='bg-content4 w-[450px] h-[400px] rounded-lg m-10'></div>
                      )
                     : (
-                    <Image src={product.images[active]} alt={product.name} style={{transformOrigin: origin}} 
-                    onMouseMove={(e) => handleOrigin(e)} onClick={handleZoom} onMouseLeave={handleQuitZoom}
-                    className={'rounded-none object-contain w-full max-w-sm sm:max-w-full'+(zoom ? " zoom-in" : " zoom-normal")} ></Image>
+                        <Carousel time={0} controls={true}>
+                            {product.images.map((img, i)=>{
+                                return (
+                                <Image src={img} alt={product.name} 
+                                style={{transformOrigin: origin}} key={i}
+                                onMouseMove={(e) => handleOrigin(e)} onClick={handleZoom} 
+                                onMouseLeave={handleQuitZoom}
+                                classNames={{
+                                    "wrapper":'rounded-none w-full shrink-0 snap-center h-full overflow-hidden',
+                                    "img":"rounded-none"+(zoom ? " zoom-in" : " zoom-normal")
+                                    }} >
+                                </Image>
+                                )
+                            })}
+                        </Carousel>
                     )
                 }
                     
                 </div>
 
-                <div className='w-full max-h-full'>
+                <div className='w-full max-h-full col-span-2'>
                     {isLoading ? 
                      (<div className='p-10 '>
                         <div className='w-1/3 h-10 bg-content4 rounded-2xl my-5 '></div>
