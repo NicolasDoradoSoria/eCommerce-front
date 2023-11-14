@@ -12,7 +12,7 @@ const NavbarMenuItems  = ({ categories, click, dropdownCategory, onMouseEnterCat
           </div>
           {dropdownCategory &&
             <ul className={click ? 'navbar_dropdown dropdown_clicked' : "navbar_dropdown"}>
-              {/* {categories.map((category, i) => <Dropdown name={category.name} path={category.path} key={i} />)} */}
+              {categories.map((category, i) => <Dropdown name={category.name} path={category.path} key={i} />)}
             </ul>
           }
         </div>

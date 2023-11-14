@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './Providers'
 import Navbar from "../components/header/components/Navbar"
+import CategoryState from '@/context/categoryContext/CategoryState'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className='body'>
           <Providers>
-            <Navbar />
+            <CategoryState>
+              <Navbar />
+            </CategoryState>
             {children}
           </Providers>
         </div>
