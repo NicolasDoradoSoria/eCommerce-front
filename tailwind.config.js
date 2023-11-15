@@ -28,6 +28,10 @@ module.exports = {
         start:"#0d6082",
         end: "#1c9aa5",
         hover:'#050026'
+      },
+      category: {
+        foreground: "#d7b0fc",
+        DEFAULT: "#37115b"
       }
     }
   },

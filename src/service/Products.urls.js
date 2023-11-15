@@ -4,3 +4,8 @@ export const get_products_params = {
     limit: "limit",
     page: "page"
 }
+export const search_products = "/searchProducts"
+export const search_products_params = {
+    name: "name"
+}
+export const category= "/category"

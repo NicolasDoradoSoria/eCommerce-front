@@ -27,3 +27,13 @@
 .price::before {
   content: "$"
 }
+
+.product-details-category {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  opacity: 90%;
+  color: theme('colors.category.foreground');
+  background-color: theme('colors.category.DEFAULT');
+  width: fit-content;
+}

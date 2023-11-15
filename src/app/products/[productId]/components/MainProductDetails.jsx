@@ -62,6 +62,7 @@ function MainProductDetails({product}) {
                             </Button>    
                         </div>
                         <div className='p-5 text-sm'>{product.description}</div>
+                        <div className='product-details-category'>{product.category}</div>
                         <div className=' flex flex-row gap-1 flex-wrap'>
                             {product.images.map((src, index) => {
                                 return (
