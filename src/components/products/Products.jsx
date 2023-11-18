@@ -16,7 +16,7 @@ function Products({searchKey=""}) {
 
   //temporary solution to not having DB - use searchKey to fetch
 
-  const {data, isLoading, error} = useSWR("ProductList"+currentPage+searchKey, (k)=> getProductsList(currentPage, searchKey))
+  const {data, isLoading, error} = useSWR("ProductList"+currentPage+searchKey, (k)=> getProductsList({page: currentPage, searchKey}))
 
   var content;
 

@@ -26,7 +26,7 @@ export async function getProductDetails(id) {
 
 export async function getProductSimilar(id) {
     //for now...    
-    const res = await instance.get(get_products)
+    const res = await instance.post(get_products+search_products)
 
     if (await res.status != 200){
         throw Error(res)
@@ -35,25 +35,39 @@ export async function getProductSimilar(id) {
     return await res.data
 }
 
-//acá falta integrar lo da las pags, el searchKey, y maybe filtros por categoría?
-export async function getProductsList(page, searchKey) {
-    /*
-    const res = await instance.get(get_products, {
-        params:{
-            [get_products_params.limit]: limit_per_page,
-            [get_products_params.page]: page
+//acá falta filtros por categoría, quizá
+export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder}) {
+    const {page, searchKey, sortOrder, sortType} = options;
+    var myParams = {
+        [get_products_params.limit]: limit_per_page,
+        [get_products_params.page]: page,
+    }
+
+    if (typeof sortType !== "undefined") {
+        myParams[get_products_params.header]= sortType
+    }
+
+    if (typeof sortOrder != "undefined") {
+        myParams[get_products_params.type]= sortOrder
+    }
+
+    console.log("params", myParams)
+
+    const res = await instance.post(
+        get_products+search_products, 
+        {
+            [search_products_params.name]: searchKey,
+        },
+        {
+            params: myParams
         }
-    })
-    */
-
-
-    const res = await instance.post(get_products+search_products, {
-        [search_products_params.name]: searchKey,
-    })
+        )
     
     if (await res.status != 200){
         throw Error(res)
     }
+
+    console.log("data", await res.data)
 
     return await res.data
 
