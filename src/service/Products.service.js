@@ -37,7 +37,6 @@ export async function getProductSimilar(id) {
 
 //acá falta filtros por categoría, quizá
 export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder}) {
-    console.log("called products list with", options)
     const {page, searchKey, sortOrder, sortType} = options;
     var myParams = {
         [get_products_params.limit]: limit_per_page,
