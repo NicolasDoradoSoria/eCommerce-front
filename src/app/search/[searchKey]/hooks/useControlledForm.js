@@ -18,9 +18,7 @@ export function useControlledForm(setSortType, setSortOrder) {
         })
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
+    const handleSubmit = () => {
         console.log(form)
     }
 
