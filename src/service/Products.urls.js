@@ -7,7 +7,9 @@ export const get_products_params = {
     type: "type"
 }
 export const get_products_headers = {
-    price: "price"
+    price: "price",
+    desc: "-1",
+    asc: "1"
 }
 export const search_products = "/searchProducts"
 export const search_products_params = {

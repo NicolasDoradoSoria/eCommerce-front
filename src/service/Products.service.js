@@ -37,21 +37,20 @@ export async function getProductSimilar(id) {
 
 //acá falta filtros por categoría, quizá
 export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder}) {
+    console.log("called products list with", options)
     const {page, searchKey, sortOrder, sortType} = options;
     var myParams = {
         [get_products_params.limit]: limit_per_page,
         [get_products_params.page]: page,
     }
 
-    if (typeof sortType !== "undefined") {
+    if (sortType !== "") {
         myParams[get_products_params.header]= sortType
     }
 
-    if (typeof sortOrder != "undefined") {
+    if (sortOrder != "") {
         myParams[get_products_params.type]= sortOrder
     }
-
-    console.log("params", myParams)
 
     const res = await instance.post(
         get_products+search_products, 
@@ -66,8 +65,6 @@ export async function getProductsList(options={page:"1", searchKey:"", sortType,
     if (await res.status != 200){
         throw Error(res)
     }
-
-    console.log("data", await res.data)
 
     return await res.data
 

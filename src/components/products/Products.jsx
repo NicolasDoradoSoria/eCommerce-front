@@ -10,13 +10,13 @@ import { Pagination } from '@nextui-org/react';
 // skeleton on loading
 
 
-function Products({searchKey=""}) {
+function Products({searchKey="", sortType="", sortOrder=""}) {
 
   const [currentPage, setCurrentPage] = useState(1)
 
   //temporary solution to not having DB - use searchKey to fetch
 
-  const {data, isLoading, error} = useSWR("ProductList"+currentPage+searchKey, (k)=> getProductsList({page: currentPage, searchKey}))
+  const {data, isLoading, error} = useSWR("ProductList"+currentPage+searchKey+sortType+sortOrder, (k)=> getProductsList({page: currentPage, searchKey, sortOrder, sortType}))
 
   var content;
 

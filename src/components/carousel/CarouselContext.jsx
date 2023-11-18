@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import { useCarousel } from "./useCarousel";
 export const CarouselContext = createContext();
 
