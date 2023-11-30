@@ -27,7 +27,7 @@ function ProductCard({item}) {
             />
           </CardBody>
           <CardFooter className="text-small flex justify-between">
-            <b>{item.name}</b>
+            <b className='text-left'>{item.name}</b>
             <p className="text-default-500 price">{item.price}</p>
           </CardFooter>
         </Link>

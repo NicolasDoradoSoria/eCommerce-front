@@ -12,7 +12,7 @@ function SalesCarousel() {
 ]
 
   return (
-    <CarouselProvider time={3000} length={imgs.length}>
+    <CarouselProvider time={5000} length={imgs.length}>
       <Carrousel>
       {imgs.map((img, i)=>{
       return (

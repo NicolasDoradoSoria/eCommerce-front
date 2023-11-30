@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { base_url, category, get_products, get_products_params, search_products, search_products_params } from './Products.urls';
 
-const limit_per_page = 1
+const limit_per_page = 3;
 
 const instance = axios.create({
     baseURL: base_url,

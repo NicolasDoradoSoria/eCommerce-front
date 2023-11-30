@@ -53,7 +53,7 @@ function MainProductDetails({product}) {
                     <div className='sticky top-0 p-5'>
                         <h1 className='text-2xl sm:text-4xl text-start font-extralight p-1'>{product.name}</h1>
                         <hr/>
-                        <h2 className='text-lg text-start font-bold p-1'>{product.price}</h2>
+                        <h2 className='text-lg text-start font-bold p-1 price'>{product.price}</h2>
                         <hr/>
                         <div className='flex flex-row gap-2 my-3'>
                             <Button color="primary" variant='solid' className='text-lg w-full rounded-sm p-1 text-center hover:brightness-110'>Add to cart</Button>
