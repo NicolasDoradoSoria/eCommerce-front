@@ -32,7 +32,7 @@ function MainProductDetails({product}) {
             text-foreground sm:h-[600px]'>
             <div className='shrink max-w-full max-h-full min-w-[50px] object-contain flex justify-center items-center overflow-hidden'>
                     <Carousel controls={false}>
-                        {product.images.map((img, i)=>{
+                        {product.image.map((img, i)=>{
                             return (
                             <Image src={img} alt={product.name} 
                             style={{transformOrigin: origin}} key={i}
@@ -64,7 +64,7 @@ function MainProductDetails({product}) {
                         <div className='p-5 text-sm'>{product.description}</div>
                         <div className='product-details-category'>{product.category.name}</div>
                         <div className=' flex flex-row gap-1 flex-wrap'>
-                            {product.images.map((src, index) => {
+                            {product.image.map((src, index) => {
                                 return (
                                 <Image src={src} alt={product.name} key={index}
                                 className={`object-cover w-[80px] h-[80px] rounded-none `+(active==index ? " outline" : " grayscale-50")}

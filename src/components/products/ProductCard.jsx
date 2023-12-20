@@ -23,7 +23,7 @@ function ProductCard({item}) {
               width="100%"
               alt={item.name}
               className="w-full object-cover h-[250px]"
-              src={item.images[0]}
+              src={item.image[0]}
             />
           </CardBody>
           <CardFooter className="text-small flex justify-between">

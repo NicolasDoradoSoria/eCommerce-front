@@ -39,7 +39,7 @@ function ProductDetails({id}) {
             </div>
             ) :
             (
-            <CarouselProvider time={0} length={product.images.length}>
+            <CarouselProvider time={0} length={product.image.length}>
                 <MainProductDetails product={product}/>
             </CarouselProvider>
             )
