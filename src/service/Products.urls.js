@@ -16,3 +16,4 @@ export const search_products_params = {
     name: "name"
 }
 export const category= "/category"
+export const favorite = "/favorite"

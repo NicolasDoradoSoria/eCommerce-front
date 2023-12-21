@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard';
 import useSWR from 'swr';
-import { getProductsList } from '@/service/Products.service';
+import { getFavorites, getProductsList } from '@/service/Products.service';
 import SkeletonCard from './SkeletonCard';
 import ErrorCard from './ErrorCard';
 import { Pagination } from '@nextui-org/react';
+import { useGetUserToken } from './hooks/useUserToken';
 
 // the list should come from a call to a server
 // skeleton on loading
@@ -14,13 +15,15 @@ function Products({searchKey="", sortType="", sortOrder=""}) {
 
   const [currentPage, setCurrentPage] = useState(1)
 
-  //temporary solution to not having DB - use searchKey to fetch
+  const token = useGetUserToken()
+  const {data: favorites, isLoading: favsLoading, error: favsError} = useSWR("Favorites"+token, (k)=> getFavorites(token))
 
+  // use searchKey to fetch
   const {data, isLoading, error} = useSWR("ProductList"+currentPage+searchKey+sortType+sortOrder, (k)=> getProductsList({page: currentPage, searchKey, sortOrder, sortType}))
 
   var content;
 
-  if (isLoading) {
+  if (isLoading || favsLoading) {
     var lista = []
     for (var i = 0; i < 20; i++) {
       lista = lista.concat(i)
@@ -30,9 +33,12 @@ function Products({searchKey="", sortType="", sortOrder=""}) {
 
   } else if (error) {
     return <ErrorCard></ErrorCard>
+  } else if (favsError){
+    console.log("error with favorite")
+    return <ErrorCard></ErrorCard>
   } else {
       content = data.products.map((item) => (
-        <ProductCard item={item} key={item.id}></ProductCard>
+        <ProductCard item={item} key={item._id} fav={favorites.includes(item._id)}></ProductCard>
       ))
   }
 

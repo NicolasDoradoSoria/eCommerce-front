@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { base_url, category, get_products, get_products_params, search_products, search_products_params } from './Products.urls';
+import { base_url, category, favorite, get_products, get_products_params, search_products, search_products_params } from './Products.urls';
 
 const limit_per_page = 3;
 
@@ -79,4 +79,56 @@ export async function getFilters() {
     }
     
     return await res.data
+}
+
+
+//Favorites
+export async function getFavorites(token) {
+    //me está pasando un error super raro. pero si uso la variable favorite falla.
+    const res = await instance.get("/favorite", {
+        headers: {
+            "x-auth-token": token
+        }
+    })
+
+    if (await res.status != 200) {
+        throw Error(res);
+    }
+    
+    const favorite = await res.data[0].favoriteProducts.map((i)=>i._id)
+    return await favorite
+
+}
+
+export async function addFavorite(id, token) {
+    const res = await instance.post(favorite,
+        {
+            "product": {"id": id}
+        },
+        {
+        headers: {
+            "x-auth-token": token
+        }
+    })
+
+    if (await res.status != 200) {
+        throw Error(res);
+    }
+
+    return
+}
+
+export async function deleteFavorite(id, token) {
+    const res = await instance.delete(favorite+"/"+id,
+        {
+        headers: {
+            "x-auth-token": token
+        }
+    })
+
+    if (await res.status != 200) {
+        throw Error(res);
+    }
+
+    return
 }

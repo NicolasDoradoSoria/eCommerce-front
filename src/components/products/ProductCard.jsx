@@ -2,12 +2,15 @@ import React from 'react'
 import { Card, CardBody, Image, CardFooter, Button } from '@nextui-org/react'
 import Link from 'next/link';
 import { HeartIcon } from './HeartIcon';
-import useToggle from '@/hooks/useToggle';
+import { useActive } from '@/app/products/[productId]/hooks/useActive';
 
-function ProductCard({item}) {
+function ProductCard({item, fav}) {
 
-  //each item should ask if they are a favorite for inital state and also update DB on change. Probs should pass id actually. we'll see
-  const {handleValue: handleFavorite, value: favorite} = useToggle(false);
+  //tanto token como favorites deberían venir de un contexto de user. puede ser una extensión del de nico o uno propio. token en localstorage  
+
+
+  //each item should see if they are a favorite for inital state and also update DB on change. Probs should pass id actually
+  const {handleActive: handleFavorite, active: favorite} = useActive(fav);
 
   return (
     <div className='w-full hover:scale-105 transition-scale duration-75 relative rounded-sm overflow-hidden'>

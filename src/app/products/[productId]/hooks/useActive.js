@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export function useActive() {
+export function useActive(initial = false) {
     //carousel
-    const [active, setActive] = useState(0)
+    const [active, setActive] = useState(initial)
 
     const handleActive = (index) => {
         setActive(index);
