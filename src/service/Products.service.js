@@ -101,34 +101,32 @@ export async function getFavorites(token) {
 }
 
 export async function addFavorite(id, token) {
-    const res = await instance.post(favorite,
+    const res = await instance.post("/favorite",
         {
             "product": {"id": id}
         },
         {
         headers: {
             "x-auth-token": token
-        }
+        },
+        timeout: 3000
     })
 
     if (await res.status != 200) {
         throw Error(res);
     }
-
-    return
 }
 
 export async function deleteFavorite(id, token) {
-    const res = await instance.delete(favorite+"/"+id,
+    const res = await instance.delete("/favorite/"+id,
         {
         headers: {
             "x-auth-token": token
-        }
+        },
+        timeout: 3000
     })
 
     if (await res.status != 200) {
         throw Error(res);
     }
-
-    return
 }

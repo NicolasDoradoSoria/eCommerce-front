@@ -3,6 +3,7 @@ import { Card, CardBody, Image, CardFooter, Button } from '@nextui-org/react'
 import Link from 'next/link';
 import { HeartIcon } from './HeartIcon';
 import { useActive } from '@/app/products/[productId]/hooks/useActive';
+import useFavorite from './hooks/useFavorite';
 
 function ProductCard({item, fav}) {
 
@@ -10,7 +11,9 @@ function ProductCard({item, fav}) {
 
 
   //each item should see if they are a favorite for inital state and also update DB on change. Probs should pass id actually
-  const {handleActive: handleFavorite, active: favorite} = useActive(fav);
+  //const {handleActive: handleFavorite, active: favorite} = useActive(fav);
+
+  const {handleFavorite, favorite} = useFavorite(item._id, fav)
 
   return (
     <div className='w-full hover:scale-105 transition-scale duration-75 relative rounded-sm overflow-hidden'>
