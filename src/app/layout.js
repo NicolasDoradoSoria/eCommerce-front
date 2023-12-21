@@ -3,6 +3,7 @@ import './globals.css'
 import { Providers } from './Providers'
 import Navbar from "../components/header/components/Navbar"
 import CategoryState from '@/context/categoryContext/CategoryState'
+import Footer from '@/components/footer/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
             </CategoryState>
             {children}
           </Providers>
+          <Footer></Footer>
         </div>
       </body>
     </html>
