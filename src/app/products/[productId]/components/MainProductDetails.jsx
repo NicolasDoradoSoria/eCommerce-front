@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { Image, Button } from '@nextui-org/react'
 import {HeartIcon} from '@/components/products/HeartIcon';
-import { getProductDetails } from '@/service/Products.service';
-import useSWR from 'swr';
-import useToggle from '@/hooks/useToggle';
 import { useZoom } from '../hooks/useZoom';
 import "../styles.css"
-import ErrorCard from '@/components/products/ErrorCard';
 import Carousel from '@/components/carousel/Carousel';
 import { useContext } from 'react'
 import { CarouselContext } from '@/components/carousel/CarouselContext';
+import useFavorite from '@/components/products/hooks/useFavorite';
+import { useGetUserToken } from '@/components/products/hooks/useUserToken';
+import useSWR from 'swr';
+import { getFavorites } from '@/service/Products.service';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel
@@ -17,7 +17,19 @@ import { CarouselContext } from '@/components/carousel/CarouselContext';
 
 function MainProductDetails({product}) {
     //favorite
-    const {handleValue: handleFavorite, value: favorite} = useToggle(false);
+    const token = useGetUserToken()
+    const {data: favorites, isLoading: favsLoading, error: favsError} = useSWR("Favorites"+token+product._id, (k)=> getFavorites(token))
+    const {handleFavorite, favorite, setFavorite} = useFavorite(product._id, false);
+
+    useEffect(() => {
+        if(favsError) {
+            console.log("error finding the favorites en detalles del producto", favsError)
+        } else if(!favsLoading){
+            setFavorite(favorites.includes(product._id))
+        }
+
+    }, [favorites, product._id, setFavorite, favsError, favsLoading])
+    
 
     //Active
     const {handleActive, active} = useContext(CarouselContext)

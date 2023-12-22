@@ -17,5 +17,5 @@ export default function useFavorite(id, isFavorite) {
         }
     }
 
-    return {favorite, handleFavorite}
+    return {favorite, handleFavorite, setFavorite}
 }

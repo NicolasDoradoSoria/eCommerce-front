@@ -15,6 +15,7 @@ function Products({searchKey="", sortType="", sortOrder=""}) {
 
   const [currentPage, setCurrentPage] = useState(1)
 
+  //favorite
   const token = useGetUserToken()
   const {data: favorites, isLoading: favsLoading, error: favsError} = useSWR("Favorites"+token+currentPage, (k)=> getFavorites(token))
 
