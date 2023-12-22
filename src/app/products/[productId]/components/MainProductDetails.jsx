@@ -10,6 +10,7 @@ import useFavorite from '@/components/products/hooks/useFavorite';
 import { useGetUserToken } from '@/components/products/hooks/useUserToken';
 import useSWR from 'swr';
 import { getFavorites } from '@/service/Products.service';
+import { useCart } from '../hooks/useCart';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel
@@ -30,6 +31,8 @@ function MainProductDetails({product}) {
 
     }, [favorites, product._id, setFavorite, favsError, favsLoading])
     
+    //Cart
+    const {isInCart, handleCart} = useCart()
 
     //Active
     const {handleActive, active} = useContext(CarouselContext)
@@ -68,7 +71,9 @@ function MainProductDetails({product}) {
                         <h2 className='text-lg text-start font-bold p-1 price'>{product.price}</h2>
                         <hr/>
                         <div className='flex flex-row gap-2 my-3'>
-                            <Button color="primary" variant='solid' className='text-lg w-full rounded-sm p-1 text-center hover:brightness-110'>Add to cart</Button>
+                            <Button color="primary" variant='solid' className='text-lg w-full rounded-sm p-1 text-center hover:brightness-110'>Buy</Button>
+                            <Button color="primary" variant='ghost' className='text-lg w-full rounded-sm p-1 text-center hover:brightness-110' 
+                            onPress={() => handleCart(product._id)}>{isInCart(product._id)? "Remove from cart" : "Add to cart"}</Button>
                             <Button color='secondary' isIconOnly aria-label="Favorite" className='p-2 rounded-sm' onPress={handleFavorite}>
                                 <HeartIcon filled={favorite} />
                             </Button>    

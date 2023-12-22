@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, CardBody, Image, CardFooter, Button } from '@nextui-org/react'
 import Link from 'next/link';
 import { HeartIcon } from './HeartIcon';
-import { useActive } from '@/app/products/[productId]/hooks/useActive';
 import useFavorite from './hooks/useFavorite';
 
 function ProductCard({item, fav}) {
