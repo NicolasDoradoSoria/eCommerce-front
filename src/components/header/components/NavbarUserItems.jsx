@@ -42,7 +42,7 @@ const NavbarUserItems = ({
             )}
             <div className='navbar_item'>
                 <div className='navbar_action'>
-                    <Button color="primary" className="navbar" onClick={signOff}>cerrar Sesion</Button>
+                    <Button color="primary" className="navbar" onClick={signOff}>Cerrar Sesión</Button>
                 </div>
             </div>
             <div className='navbar_item'>
