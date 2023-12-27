@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import useSWR from 'swr';
 import { getFavorites, getProductsList } from '@/service/Products.service';
 import SkeletonCard from './SkeletonCard';
-import ErrorCard from './ErrorCard';
+import ErrorCard from '../error/ErrorCard';
 import { Pagination } from '@nextui-org/react';
 import { useGetUserToken } from './hooks/useUserToken';
 
@@ -34,11 +34,9 @@ function Products({searchKey="", sortType="", sortOrder="", isCart=false}) {
     content = lista.map((i) => <SkeletonCard key={i} />)
 
   } else if (error) {
-    console.info("error with products", error)
-    return <ErrorCard></ErrorCard>
+    return <ErrorCard msg={error.msg} extra='In data:'></ErrorCard>
   } else if (favsError){
-    console.info("error with favorite", favsError)
-    return <ErrorCard></ErrorCard>
+    return <ErrorCard msg={favsError.message} extra='In favorites:'></ErrorCard>
   } else {
       content = data.products.map((item) => (
         <ProductCard item={item} key={item._id} fav={favorites.includes(item._id)}></ProductCard>

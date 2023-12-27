@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import {Radio, RadioGroup, Checkbox, CheckboxGroup, Button, Select, SelectItem } from "@nextui-org/react"
 import { useControlledForm } from '../hooks/useControlledForm'
 import useSWR from 'swr'
-import ErrorCard from '@/components/products/ErrorCard'
+import ErrorCard from '@/components/error/ErrorCard'
 import { getFilters } from '@/service/Products.service'
 import FilterLoading from './FilterLoading'
 import { FiltersContext } from '../context/FiltersProvider'
@@ -16,7 +16,7 @@ function FilterOptions() {
   const {data, isLoading, error} = useSWR("Filters", getFilters)
 
   if (error) {
-    return <ErrorCard error={error}/>
+    return <ErrorCard msg={error.message}/>
   } else if (isLoading) {
     return <FilterLoading/>
   } else {

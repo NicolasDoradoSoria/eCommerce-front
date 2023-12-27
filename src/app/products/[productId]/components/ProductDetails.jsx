@@ -1,11 +1,10 @@
 import React from 'react'
 import { getFavorites, getProductDetails } from '@/service/Products.service';
 import useSWR from 'swr';
-import ErrorCard from '@/components/products/ErrorCard';
+import ErrorCard from '@/components/error/ErrorCard';
 import CarouselProvider from '@/components/carousel/CarouselContext';
 import MainProductDetails from './MainProductDetails';
 import { useGetUserToken } from '@/components/products/hooks/useUserToken';
-import useFavorite from '@/components/products/hooks/useFavorite';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel
@@ -20,9 +19,9 @@ function ProductDetails({id}) {
     const {data: product, isLoading, error} = useSWR(`ProductDetails${id}`, async (name) => await getProductDetails(id));
 
     if (error) {
-        return (<ErrorCard/>)
+        return (<ErrorCard msg={error.message} extra='In data:'/>)
     } else if (favsError) {
-        return (<ErrorCard/>)
+        return (<ErrorCard msg={favsError.message} extra='In favorites:'/>)
     } else {
         return (<>
             {isLoading || favsLoading? (

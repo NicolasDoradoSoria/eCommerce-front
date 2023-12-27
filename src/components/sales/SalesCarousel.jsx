@@ -4,7 +4,7 @@ import { Image, Skeleton } from '@nextui-org/react'
 import CarouselProvider from '../carousel/CarouselContext'
 import useSWR from 'swr'
 import { getCarrousel } from '@/service/Products.service'
-import ErrorCard from '../products/ErrorCard'
+import ErrorCard from '../error/ErrorCard'
 
 function SalesCarousel() {
 
@@ -17,8 +17,7 @@ function SalesCarousel() {
     </Skeleton>
     )
   } else if (error) {
-    console.info("error in carousel", error)
-    return <ErrorCard></ErrorCard>
+    return <ErrorCard msg={error.message}></ErrorCard>
   } else {
     return (
       <CarouselProvider time={5000} length={imgs.length}>

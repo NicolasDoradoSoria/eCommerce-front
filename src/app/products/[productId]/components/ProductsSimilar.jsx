@@ -3,7 +3,7 @@ import ProductCard from '@/components/products/ProductCard'
 import useSWR from 'swr';
 import { getFavorites, getProductSimilar } from '@/service/Products.service';
 import SkeletonCard from '@/components/products/SkeletonCard';
-import ErrorCard from '@/components/products/ErrorCard';
+import ErrorCard from '@/components/error/ErrorCard';
 import { useGetUserToken } from '@/components/products/hooks/useUserToken';
 
 //alternativamente podría ser un carrusel con paginación.
@@ -20,10 +20,10 @@ function ProductsSimilar({id}) {
   const loadingList = [1,1,1,1,1,1,1]
 
     if (error) {
-      return (<ErrorCard/>)
+      return (<ErrorCard msg={error.message} extra='In data:'/>)
     } else if (favsError) {
       console.log("error con favoritos para productos similares")
-      return (<ErrorCard/>)
+      return (<ErrorCard msg={favsError.message} extra='In favorites:'/>)
     } else {
       return (
         <div className='p-5'>
