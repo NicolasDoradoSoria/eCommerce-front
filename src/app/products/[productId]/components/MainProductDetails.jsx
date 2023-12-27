@@ -16,20 +16,9 @@ import { useCart } from '../hooks/useCart';
 //hay imagenes extra? - carrusel
 
 
-function MainProductDetails({product}) {
+function MainProductDetails({product, isFav}) {
     //favorite
-    const token = useGetUserToken()
-    const {data: favorites, isLoading: favsLoading, error: favsError} = useSWR("Favorites"+token+product._id, (k)=> getFavorites(token))
-    const {handleFavorite, favorite, setFavorite} = useFavorite(product._id, false);
-
-    useEffect(() => {
-        if(favsError) {
-            console.log("error finding the favorites en detalles del producto", favsError)
-        } else if(!favsLoading){
-            setFavorite(favorites.includes(product._id))
-        }
-
-    }, [favorites, product._id, setFavorite, favsError, favsLoading])
+    const {handleFavorite, favorite, setFavorite} = useFavorite(product._id, isFav);
     
     //Cart
     const {isInCart, handleCart} = useCart()

@@ -1,24 +1,31 @@
 import React from 'react'
-import { getProductDetails } from '@/service/Products.service';
+import { getFavorites, getProductDetails } from '@/service/Products.service';
 import useSWR from 'swr';
 import ErrorCard from '@/components/products/ErrorCard';
 import CarouselProvider from '@/components/carousel/CarouselContext';
 import MainProductDetails from './MainProductDetails';
+import { useGetUserToken } from '@/components/products/hooks/useUserToken';
+import useFavorite from '@/components/products/hooks/useFavorite';
 
 //esto depende bastante de que info hay sobre el objeto
 //hay imagenes extra? - carrusel
 
 
 function ProductDetails({id}) {
+    //favorite
+    const token = useGetUserToken()
+    const {data: favorites, isLoading: favsLoading, error: favsError} = useSWR("Favorites"+token+id, (k)=> getFavorites(token))
 
     //call to server
     const {data: product, isLoading, error} = useSWR(`ProductDetails${id}`, async (name) => await getProductDetails(id));
 
     if (error) {
         return (<ErrorCard/>)
+    } else if (favsError) {
+        return (<ErrorCard/>)
     } else {
         return (<>
-            {isLoading? (
+            {isLoading || favsLoading? (
             <div className='grid grid-cols-1 sm:grid-cols-3 items-center content-stretch sm:items-stretch justify-start mx-5 md:mx-20 my-10 rounded-md
              drop-shadow-xl bg-content2
              text-foreground sm:h-[600px]'>
@@ -40,7 +47,7 @@ function ProductDetails({id}) {
             ) :
             (
             <CarouselProvider time={0} length={product.image.length}>
-                <MainProductDetails product={product}/>
+                <MainProductDetails product={product} isFav={favorites.includes(product._id)}/>
             </CarouselProvider>
             )
             }            

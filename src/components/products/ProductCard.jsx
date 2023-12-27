@@ -10,8 +10,6 @@ function ProductCard({item, fav}) {
 
 
   //each item should see if they are a favorite for inital state and also update DB on change. Probs should pass id actually
-  //const {handleActive: handleFavorite, active: favorite} = useActive(fav);
-
   const {handleFavorite, favorite} = useFavorite(item._id, fav)
 
   return (

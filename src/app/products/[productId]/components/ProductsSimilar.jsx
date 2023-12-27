@@ -2,7 +2,6 @@ import React from 'react'
 import ProductCard from '@/components/products/ProductCard'
 import useSWR from 'swr';
 import { getFavorites, getProductSimilar } from '@/service/Products.service';
-import { fruits } from '@/components/products/dataTemporary';
 import SkeletonCard from '@/components/products/SkeletonCard';
 import ErrorCard from '@/components/products/ErrorCard';
 import { useGetUserToken } from '@/components/products/hooks/useUserToken';
@@ -26,8 +25,6 @@ function ProductsSimilar({id}) {
       console.log("error con favoritos para productos similares")
       return (<ErrorCard/>)
     } else {
-      //debug
-      console.log("voy a render con", favorites)
       return (
         <div className='p-5'>
             <h1 className='p-2 text-light'>You may also like...</h1>
