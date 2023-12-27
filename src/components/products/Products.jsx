@@ -34,9 +34,10 @@ function Products({searchKey="", sortType="", sortOrder="", isCart=false}) {
     content = lista.map((i) => <SkeletonCard key={i} />)
 
   } else if (error) {
+    console.info("error with products", error)
     return <ErrorCard></ErrorCard>
   } else if (favsError){
-    console.log("error with favorite")
+    console.info("error with favorite", favsError)
     return <ErrorCard></ErrorCard>
   } else {
       content = data.products.map((item) => (

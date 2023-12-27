@@ -38,7 +38,7 @@ export async function getProductSimilar(id) {
 //acá falta filtros por categoría, quizá
 export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder, isCart}) {
 
-    if (isCart) {
+    if (options.isCart) {
         return await getCart(page)
     }
 
