@@ -36,7 +36,12 @@ export async function getProductSimilar(id) {
 }
 
 //acá falta filtros por categoría, quizá
-export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder}) {
+export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder, isCart}) {
+
+    if (isCart) {
+        return await getCart(page)
+    }
+
     const {page, searchKey, sortOrder, sortType} = options;
     var myParams = {
         [get_products_params.limit]: limit_per_page,
@@ -129,4 +134,34 @@ export async function deleteFavorite(id, token) {
     if (await res.status != 200) {
         throw Error(res);
     }
+}
+
+//Cart
+async function getCart(page) {
+    var myParams = {
+        [get_products_params.limit]: limit_per_page,
+        [get_products_params.page]: page,
+    }
+
+    //TODO: que exista la llamada para esto lol
+    //res = await instance.get( url, {params:myParams})
+
+    //placeholder:
+    const res = await instance.post(
+        get_products+search_products, 
+        {
+            [search_products_params.name]: "",
+        },
+        {
+            params: myParams
+        }
+        )
+
+    
+    
+    if (res.status != 200){
+        throw Error(res)
+    }
+
+    return await res.data
 }
