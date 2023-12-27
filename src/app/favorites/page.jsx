@@ -4,7 +4,7 @@ import React from 'react'
 
 function Home() {
   return (
-    <Products searchKey='favorites' />
+    <Products isFavorite={true} />
   )
 }
 

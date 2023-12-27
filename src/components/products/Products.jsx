@@ -11,7 +11,7 @@ import { useGetUserToken } from './hooks/useUserToken';
 // skeleton on loading
 
 
-function Products({searchKey="", sortType="", sortOrder="", isCart=false}) {
+function Products({searchKey="", sortType="", sortOrder="", isCart=false, isFavorite=false}) {
 
   const [currentPage, setCurrentPage] = useState(1)
 
@@ -21,7 +21,7 @@ function Products({searchKey="", sortType="", sortOrder="", isCart=false}) {
 
   // use searchKey to fetch
   const {data, isLoading, error} = useSWR("ProductList"+currentPage+searchKey+sortType+sortOrder, 
-  (k)=> getProductsList({page: currentPage, searchKey, sortOrder, sortType, isCart}))
+  (k)=> getProductsList({page: currentPage, searchKey, sortOrder, sortType, isCart, isFavorite, token}))
 
   var content;
 

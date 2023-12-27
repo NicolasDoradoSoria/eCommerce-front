@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 import { base_url, carrusel, category, favorite, get_products, get_products_params, search_products, search_products_params } from './Products.urls';
+import { useGetUserToken } from '@/components/products/hooks/useUserToken';
 
 const limit_per_page = 3;
 
@@ -36,10 +37,15 @@ export async function getProductSimilar(id) {
 }
 
 //acá falta filtros por categoría, quizá
-export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder, isCart}) {
+//gosh, es medio MUY adaptable. por ahí me conviene separar products en pedazos?
+export async function getProductsList(options={page:"1", searchKey:"", sortType, sortOrder, isCart, isFavorite, token}) {
 
     if (options.isCart) {
         return await getCart(page)
+    }
+
+    if(options.isFavorite) {
+        return await getFavoriteProducts(options.token)
     }
 
     const {page, searchKey, sortOrder, sortType} = options;
@@ -134,6 +140,22 @@ export async function deleteFavorite(id, token) {
     if (await res.status != 200) {
         throw Error(res);
     }
+}
+
+async function getFavoriteProducts(token) {
+    //me está pasando un error super raro. pero si uso la variable favorite falla.
+    const res = await instance.get("/favorite", {
+        headers: {
+            "x-auth-token": token
+        }
+    })
+
+    if (await res.status != 200) {
+        throw Error(res);
+    }
+    
+    const favorite = await res.data[0].favoriteProducts
+    return await {products:favorite}
 }
 
 //Cart
