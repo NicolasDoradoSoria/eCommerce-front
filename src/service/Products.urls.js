@@ -17,3 +17,4 @@ export const search_products_params = {
 }
 export const category= "/category"
 export const favorite = "/favorite"
+export const carrusel = "/image"

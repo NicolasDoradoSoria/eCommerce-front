@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { base_url, category, favorite, get_products, get_products_params, search_products, search_products_params } from './Products.urls';
+import { base_url, carrusel, category, favorite, get_products, get_products_params, search_products, search_products_params } from './Products.urls';
 
 const limit_per_page = 3;
 
@@ -164,4 +164,16 @@ async function getCart(page) {
     }
 
     return await res.data
+}
+
+//Carrusel
+export async function getCarrousel() {
+    const res = await instance.get(carrusel)
+
+    if (res.status != 200) {
+        throw Error(res);
+    }
+    
+    const images = await res.data.images.map((i)=>i.secure_url)
+    return await images
 }
