@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import UseImages from "./UseImages";
 import UseProductContext from "@/context/hook/UseProductContext";
 import UseCategoryContext from "@/context/hook/UseCategoryContext";
+import { useRouter } from "next/navigation";
 
 const UseAddEditProduct = () => {
 
-    // const navigate = useNavigate();
+    const router = useRouter()  
 
     const { addProduct, product, updateProduct } = UseProductContext()
-    const {categories} = UseCategoryContext()
+    const {categories, getCategory } = UseCategoryContext()
+
     // custom hooks de las imagenes 
     const { imagesDisabled,
         images,
@@ -54,12 +55,13 @@ const UseAddEditProduct = () => {
 
     const productSubmit = (e) => {
         e.preventDefault();
+        console.log("hola")
         (product ? updateProduct(productNew) : addProduct(productNew, images))
-        // navigate("/")
+        router.push("/")
     }
 
     useEffect(() => {
-        // getCategory()
+        getCategory()
         if (product) {
             setProductNew(product)
             setImages(product.images)

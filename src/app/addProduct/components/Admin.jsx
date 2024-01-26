@@ -1,7 +1,7 @@
 "use client"
 
 import ProductManagementState from '../context/ProductManagementState';
-import AddEditProduct from '../views/AddEditProduct'
+import AddEditProduct from '../views/AddEditProduct';
 const Admin = ({ children }) => {
     return (
         <ProductManagementState>

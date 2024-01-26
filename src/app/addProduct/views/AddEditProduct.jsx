@@ -20,15 +20,15 @@ const AddEditProduct = () => {
                 <form className="product_form" onSubmit={productSubmit}>
                     {/* NOMBRE */}
                     <div className="product_item">
-                        <Input productChange={productChange} value={name} label="nombre del producto" name="name" />
+                        <Input productChange={productChange} label="nombre del producto" name="name" />
                     </div>
                     {/* PRECIO */}
                     <div className="product_item">
-                        <Input productChange={productChange} value={price} type="number" label="Precio" name="price" inputProps={{ inputProps: { min: 0 } }}  />
+                        <Input productChange={productChange} type="number" label="Precio" name="price" inputProps={{ inputProps: { min: 0 } }}  />
                     </div>
                     {/* DESCRIPCION */}
                     <div className="product_item">
-                        <Input productChange={productChange} value={descripcion} label="Descripcion" name="descripcion" />
+                        <Input productChange={productChange}  label="Descripcion" name="descripcion" />
                     </div>
                     {/* STOCK */}
                     <div className="product_item">
@@ -47,7 +47,6 @@ const AddEditProduct = () => {
                             {categories.map(category => (
                                 <SelectItem value={category._id} key={category._id} >{category.name}</SelectItem>
                             ))}
-                            {/* {(animal) => <SelectItem key={animal.value}>{animal.label}</SelectItem>} */}
                         </Select>
                     </div>
                     {/* CARGA Y MOSTRAR IMAGENES */}
@@ -61,11 +60,13 @@ const AddEditProduct = () => {
                         <Checkbox name="checkedOffer" checked={checkedOffer} onChange={checkedOfferChange} defaultSelected>Oferta</Checkbox>
                     </div>
                     {/* PRECIO ORIGINAL se activa si es true el checkedOffer */}
+                    {checkedOffer ? 
                     <div className="product_item">
-                        <Input label="precio orginal" value={originalPrice} productChange={productChange} type="number" name="originalPrice" inputProps={{ inputProps: { min: price } }} />
-                    </div>
+                        <Input label="precio orginal" productChange={productChange} type="number" name="originalPrice" inputProps={{ inputProps: { min: price } }} />
+                    </div> : <></>
+                    }
                     <div className="product_item">
-                        <Button color="primary" className='cursor-pointer' disabled={productButtonDisabled()}>
+                        <Button color="primary" type="submit" className='cursor-pointer' disabled={productButtonDisabled()} >
                         {!product ? "Agregar Producto" : "actualizar Producto"}
                         </Button>
                     </div>
