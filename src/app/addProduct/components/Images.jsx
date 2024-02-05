@@ -11,10 +11,8 @@ const Images = () => {
         <>
             {/* SUBIR IMAGBEN */}
             <div className="product_item">
-                <Button color="primary">
-                    Subir
-                    <Input accept="image/*" name="img" type="file" onChange={imageChange} />
-                </Button>
+                <input type="file" onChange={imageChange} style={{ display: 'none' }} accept="image/*" name="img"/>
+                <Button color="primary" onClick={() => document.querySelector('input[type="file"]').click()}>Subir</Button>
             </div>
             {/* IMAGEN PREVIA */}
             <div className="product_item_col2">

@@ -20,19 +20,19 @@ const AddEditProduct = () => {
                 <form className="product_form" onSubmit={productSubmit}>
                     {/* NOMBRE */}
                     <div className="product_item">
-                        <Input productChange={productChange} label="nombre del producto" name="name" />
+                        <Input onChange={productChange} label="nombre del producto" name="name" />
                     </div>
                     {/* PRECIO */}
                     <div className="product_item">
-                        <Input productChange={productChange} type="number" label="Precio" name="price" inputProps={{ inputProps: { min: 0 } }}  />
+                        <Input onChange={productChange} type="number" label="Precio" name="price" inputProps={{ inputProps: { min: 0 } }}  />
                     </div>
                     {/* DESCRIPCION */}
                     <div className="product_item">
-                        <Input productChange={productChange}  label="Descripcion" name="descripcion" />
+                        <Input onChange={productChange}  label="Descripcion" name="descripcion" />
                     </div>
                     {/* STOCK */}
                     <div className="product_item">
-                        <Input productChange={productChange} type="number" label="Stock" name="stock" inputProps={{ inputProps: { min: 1 } }} defaultValue="1" />
+                        <Input onChange={productChange} type="number" label="Stock" name="stock" inputProps={{ inputProps: { min: 1 } }} defaultValue="1" />
                     </div>
                     {/* CATEGORIA */}
                     <div className="product_item">
@@ -53,7 +53,7 @@ const AddEditProduct = () => {
                     <Images />
                     {/* ELIMINAR IMAGEN */}
                     <div className="product_item">
-                        <Button color="primary" className='cursor-pointer' disabled={imageButtonDisabled()} onClick={() => deleteImage()} >Eliminar</Button>
+                        <Button color="primary" className='cursor-pointer' isDisabled={imageButtonDisabled()} onClick={() => deleteImage()} >Eliminar</Button>
                     </div>
                     {/* CHECKBOX DE SI TIENE OFERTA O NO */}
                     <div className="product_item">
@@ -66,8 +66,8 @@ const AddEditProduct = () => {
                     </div> : <></>
                     }
                     <div className="product_item">
-                        <Button color="primary" type="submit" className='cursor-pointer' disabled={productButtonDisabled()} >
-                        {!product ? "Agregar Producto" : "actualizar Producto"}
+                        <Button color="primary" type="submit" className='cursor-pointer' isDisabled={productButtonDisabled()}>
+                        {!product ? "Agregar Producto" : "Actualizar Producto"}
                         </Button>
                     </div>
                 </form>

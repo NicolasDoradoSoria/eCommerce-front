@@ -39,7 +39,7 @@ const UseAddEditProduct = () => {
 
     // desabilitar el boton de agregar producto si alguno de los campos no fue completado
     const productButtonDisabled = () => {
-        return imagesDisabled() || (isEmpty(name) || isEmpty(descripcion) || isEmpty(category))
+        return (imagesDisabled() || (isEmpty(name) || isEmpty(descripcion) || isEmpty(category)))
     }
 
     // checkbox
@@ -54,9 +54,8 @@ const UseAddEditProduct = () => {
     };
 
     const productSubmit = (e) => {
-        e.preventDefault();
-        console.log("hola")
-        (product ? updateProduct(productNew) : addProduct(productNew, images))
+        e.preventDefault()
+        product ? updateProduct(productNew) : addProduct(productNew, images)
         router.push("/")
     }
 
