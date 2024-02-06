@@ -26,7 +26,6 @@ const CategoryState = (props) => {
   const getCategory = async () => {
     try {
       const result = await getCategoryList();
-      console.log(result);
       dispatch({
         type: GET_CATEGORY,
         payload: result.data

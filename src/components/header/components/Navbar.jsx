@@ -22,7 +22,7 @@ const adminPath = [
     },
     {
         name: "Agregar Producto",
-        path: "agregar-producto",
+        path: "addProduct",
     },
     {
         name: "Administrador Carrousel Principal",
