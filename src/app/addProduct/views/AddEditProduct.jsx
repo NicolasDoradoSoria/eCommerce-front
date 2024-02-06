@@ -6,6 +6,7 @@ import Images from '../components/Images'
 import { Checkbox } from "@nextui-org/react";
 import { useContext } from 'react';
 import ProductManagementContext from '../context/ProductManagementContext';
+import DeleteIcon from '../styles/deleteIcon';
 const AddEditProduct = () => {
 
     const productManagementContext = useContext(ProductManagementContext);
@@ -53,7 +54,7 @@ const AddEditProduct = () => {
                     <Images />
                     {/* ELIMINAR IMAGEN */}
                     <div className="product_item">
-                        <Button color="primary" className='cursor-pointer' isDisabled={imageButtonDisabled()} onClick={() => deleteImage()} >Eliminar</Button>
+                        <Button startContent={<DeleteIcon/>} color="primary" className='cursor-pointer' isDisabled={imageButtonDisabled()} onClick={() => deleteImage()} >Eliminar</Button>
                     </div>
                     {/* CHECKBOX DE SI TIENE OFERTA O NO */}
                     <div className="product_item">

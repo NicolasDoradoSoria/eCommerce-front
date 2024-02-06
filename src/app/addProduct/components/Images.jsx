@@ -1,6 +1,7 @@
 import { Button, Input } from "@nextui-org/react";
 import { useContext } from "react";
 import ProductManagementContext from "../context/ProductManagementContext";
+import UploadIcon from "../styles/UploadIcon";
 
 const Images = () => {
 
@@ -12,7 +13,7 @@ const Images = () => {
             {/* SUBIR IMAGBEN */}
             <div className="product_item">
                 <input type="file" onChange={imageChange} style={{ display: 'none' }} accept="image/*" name="img"/>
-                <Button color="primary" onClick={() => document.querySelector('input[type="file"]').click()}>Subir</Button>
+                <Button color="primary" onClick={() => document.querySelector('input[type="file"]').click()} startContent={<UploadIcon/>}>Subir</Button>
             </div>
             {/* IMAGEN PREVIA */}
             <div className="product_item_col2">
